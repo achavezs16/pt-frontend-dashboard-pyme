@@ -3,6 +3,14 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  
+  /* Colores institucionales PymeTrack */
+  --primary-blue: #1E3A8A;
+  --secondary-blue: #2563EB;
+  --accent-orange: #F97316;
+  --white: #FFFFFF;
+  --light-gray: #F3F4F6;
+  --text-gray: #374151;
 }
 
 @theme inline {

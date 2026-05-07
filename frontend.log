@@ -1,0 +1,1677 @@
+
+> portal-pyme@0.1.0 dev
+> next dev
+
+▲ Next.js 16.2.4 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.1.33:3000
+✓ Ready in 325ms
+⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+
+ GET /api/pedidos 500 in 307ms (next.js: 227ms, application-code: 80ms)
+⨯ ./src/hooks/useAuth.tsx:1:31
+You're importing a module that depends on `createContext` into a React Server Component module. This API is only available in Client Components. To fix, mark the file (or its parent) with the `"use client"` directive.
+    Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+[31m[1m>[0m [90m1 |[0m [36mimport[0m { useState, useEffect, createContext, useContext, [33mReactNode[0m } [36mfrom[0m [32m'react'[0m;
+  [90m  |[0m                               [31m[1m^^^^^^^^^^^^^[0m
+  [90m2 |[0m [36mimport[0m { apiClient } [36mfrom[0m [32m'@/lib/api'[0m;
+  [90m3 |[0m
+  [90m4 |[0m [36minterface[0m [33mUser[0m {
+
+Ecmascript file had an error
+
+Import traces:
+  Server Component:
+    ./src/hooks/useAuth.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/hooks/useAuth.tsx [Client Component Browser]
+    ./src/app/login/page.tsx [Client Component Browser]
+    ./src/app/login/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/hooks/useAuth.tsx [Client Component SSR]
+    ./src/app/login/page.tsx [Client Component SSR]
+    ./src/app/login/page.tsx [Server Component]
+
+
+
+./src/hooks/useAuth.tsx:1:20
+You're importing a module that depends on `useEffect` into a React Server Component module. This API is only available in Client Components. To fix, mark the file (or its parent) with the `"use client"` directive.
+    Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+[31m[1m>[0m [90m1 |[0m [36mimport[0m { useState, useEffect, createContext, useContext, [33mReactNode[0m } [36mfrom[0m [32m'react'[0m;
+  [90m  |[0m                    [31m[1m^^^^^^^^^[0m
+  [90m2 |[0m [36mimport[0m { apiClient } [36mfrom[0m [32m'@/lib/api'[0m;
+  [90m3 |[0m
+  [90m4 |[0m [36minterface[0m [33mUser[0m {
+
+Ecmascript file had an error
+
+Import traces:
+  Server Component:
+    ./src/hooks/useAuth.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/hooks/useAuth.tsx [Client Component Browser]
+    ./src/app/login/page.tsx [Client Component Browser]
+    ./src/app/login/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/hooks/useAuth.tsx [Client Component SSR]
+    ./src/app/login/page.tsx [Client Component SSR]
+    ./src/app/login/page.tsx [Server Component]
+
+
+
+./src/hooks/useAuth.tsx:1:10
+You're importing a module that depends on `useState` into a React Server Component module. This API is only available in Client Components. To fix, mark the file (or its parent) with the `"use client"` directive.
+    Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+[31m[1m>[0m [90m1 |[0m [36mimport[0m { useState, useEffect, createContext, useContext, [33mReactNode[0m } [36mfrom[0m [32m'react'[0m;
+  [90m  |[0m          [31m[1m^^^^^^^^[0m
+  [90m2 |[0m [36mimport[0m { apiClient } [36mfrom[0m [32m'@/lib/api'[0m;
+  [90m3 |[0m
+  [90m4 |[0m [36minterface[0m [33mUser[0m {
+
+Ecmascript file had an error
+
+Import traces:
+  Server Component:
+    ./src/hooks/useAuth.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/hooks/useAuth.tsx [Client Component Browser]
+    ./src/app/login/page.tsx [Client Component Browser]
+    ./src/app/login/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/hooks/useAuth.tsx [Client Component SSR]
+    ./src/app/login/page.tsx [Client Component SSR]
+    ./src/app/login/page.tsx [Server Component]
+
+
+ GET /login 500 in 108ms (next.js: 77ms, proxy.ts: 11ms, application-code: 20ms)
+[browser] Uncaught Error: ./src/hooks/useAuth.tsx:1:31
+You're importing a module that depends on `createContext` into a React Server Component module. This API is only available in Client Components. To fix, mark the file (or its parent) with the `"use client"` directive.
+    Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+> 1 | import { useState, useEffect, createContext, useContext, ReactNode } from 'react';
+    |                               ^^^^^^^^^^^^^
+  2 | import { apiClient } from '@/lib/api';
+  3 |
+  4 | interface User {
+
+Ecmascript file had an error
+
+Import trace:
+  Server Component:
+    ./src/hooks/useAuth.tsx
+    ./src/app/layout.tsx
+
+
+    at <unknown> (Error: ./src/hooks/useAuth.tsx:1:31)
+    at <unknown> (Error: (./src/hooks/useAuth.tsx:1:31)
+[browser] ./src/hooks/useAuth.tsx:1:31
+You're importing a module that depends on `createContext` into a React Server Component module. This API is only available in Client Components. To fix, mark the file (or its parent) with the `"use client"` directive.
+    Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+> 1 | import { useState, useEffect, createContext, useContext, ReactNode } from 'react';
+    |                               ^^^^^^^^^^^^^
+  2 | import { apiClient } from '@/lib/api';
+  3 |
+  4 | interface User {
+
+Ecmascript file had an error
+
+Import trace:
+  Server Component:
+    ./src/hooks/useAuth.tsx
+    ./src/app/layout.tsx 
+    at handleErrors (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2773:21)
+    at processMessage (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2834:28)
+    at <unknown> (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2679:13)
+    at WebSocket.handleMessage (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2324:17) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2773:21)
+[browser] ./src/hooks/useAuth.tsx:1:20
+You're importing a module that depends on `useEffect` into a React Server Component module. This API is only available in Client Components. To fix, mark the file (or its parent) with the `"use client"` directive.
+    Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+> 1 | import { useState, useEffect, createContext, useContext, ReactNode } from 'react';
+    |                    ^^^^^^^^^
+  2 | import { apiClient } from '@/lib/api';
+  3 |
+  4 | interface User {
+
+Ecmascript file had an error
+
+Import trace:
+  Server Component:
+    ./src/hooks/useAuth.tsx
+    ./src/app/layout.tsx 
+    at handleErrors (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2773:21)
+    at processMessage (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2834:28)
+    at <unknown> (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2679:13)
+    at WebSocket.handleMessage (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2324:17) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2773:21)
+[browser] ./src/hooks/useAuth.tsx:1:10
+You're importing a module that depends on `useState` into a React Server Component module. This API is only available in Client Components. To fix, mark the file (or its parent) with the `"use client"` directive.
+    Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+> 1 | import { useState, useEffect, createContext, useContext, ReactNode } from 'react';
+    |          ^^^^^^^^
+  2 | import { apiClient } from '@/lib/api';
+  3 |
+  4 | interface User {
+
+Ecmascript file had an error
+
+Import trace:
+  Server Component:
+    ./src/hooks/useAuth.tsx
+    ./src/app/layout.tsx 
+    at handleErrors (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2773:21)
+    at processMessage (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2834:28)
+    at <unknown> (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2679:13)
+    at WebSocket.handleMessage (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2324:17) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2773:21)
+[browser] ./src/hooks/useAuth.tsx:1:31
+You're importing a module that depends on `createContext` into a React Server Component module. This API is only available in Client Components. To fix, mark the file (or its parent) with the `"use client"` directive.
+    Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+> 1 | import { useState, useEffect, createContext, useContext, ReactNode } from 'react';
+    |                               ^^^^^^^^^^^^^
+  2 | import { apiClient } from '@/lib/api';
+  3 |
+  4 | interface User {
+
+Ecmascript file had an error
+
+Import trace:
+  Server Component:
+    ./src/hooks/useAuth.tsx
+    ./src/app/layout.tsx 
+    at handleErrors (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2773:21)
+    at processMessage (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2834:28)
+    at <unknown> (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2679:13)
+    at WebSocket.handleMessage (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2324:17) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2773:21)
+[browser] ./src/hooks/useAuth.tsx:1:20
+You're importing a module that depends on `useEffect` into a React Server Component module. This API is only available in Client Components. To fix, mark the file (or its parent) with the `"use client"` directive.
+    Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+> 1 | import { useState, useEffect, createContext, useContext, ReactNode } from 'react';
+    |                    ^^^^^^^^^
+  2 | import { apiClient } from '@/lib/api';
+  3 |
+  4 | interface User {
+
+Ecmascript file had an error
+
+Import trace:
+  Server Component:
+    ./src/hooks/useAuth.tsx
+    ./src/app/layout.tsx 
+    at handleErrors (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2773:21)
+    at processMessage (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2834:28)
+    at <unknown> (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2679:13)
+    at WebSocket.handleMessage (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2324:17) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2773:21)
+[browser] ./src/hooks/useAuth.tsx:1:10
+You're importing a module that depends on `useState` into a React Server Component module. This API is only available in Client Components. To fix, mark the file (or its parent) with the `"use client"` directive.
+    Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+> 1 | import { useState, useEffect, createContext, useContext, ReactNode } from 'react';
+    |          ^^^^^^^^
+  2 | import { apiClient } from '@/lib/api';
+  3 |
+  4 | interface User {
+
+Ecmascript file had an error
+
+Import trace:
+  Server Component:
+    ./src/hooks/useAuth.tsx
+    ./src/app/layout.tsx 
+    at handleErrors (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2773:21)
+    at processMessage (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2834:28)
+    at <unknown> (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2679:13)
+    at WebSocket.handleMessage (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2324:17) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2773:21)
+[browser] ./src/hooks/useAuth.tsx:1:31
+You're importing a module that depends on `createContext` into a React Server Component module. This API is only available in Client Components. To fix, mark the file (or its parent) with the `"use client"` directive.
+    Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+> 1 | import { useState, useEffect, createContext, useContext, ReactNode } from 'react';
+    |                               ^^^^^^^^^^^^^
+  2 | import { apiClient } from '@/lib/api';
+  3 |
+  4 | interface User {
+
+Ecmascript file had an error
+
+Import trace:
+  Server Component:
+    ./src/hooks/useAuth.tsx
+    ./src/app/layout.tsx 
+    at handleErrors (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2773:21)
+    at processMessage (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2834:28)
+    at <unknown> (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2679:13)
+    at WebSocket.handleMessage (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2324:17) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2773:21)
+[browser] ./src/hooks/useAuth.tsx:1:20
+You're importing a module that depends on `useEffect` into a React Server Component module. This API is only available in Client Components. To fix, mark the file (or its parent) with the `"use client"` directive.
+    Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+> 1 | import { useState, useEffect, createContext, useContext, ReactNode } from 'react';
+    |                    ^^^^^^^^^
+  2 | import { apiClient } from '@/lib/api';
+  3 |
+  4 | interface User {
+
+Ecmascript file had an error
+
+Import trace:
+  Server Component:
+    ./src/hooks/useAuth.tsx
+    ./src/app/layout.tsx 
+    at handleErrors (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2773:21)
+    at processMessage (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2834:28)
+    at <unknown> (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2679:13)
+    at WebSocket.handleMessage (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2324:17) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2773:21)
+[browser] ./src/hooks/useAuth.tsx:1:10
+You're importing a module that depends on `useState` into a React Server Component module. This API is only available in Client Components. To fix, mark the file (or its parent) with the `"use client"` directive.
+    Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+> 1 | import { useState, useEffect, createContext, useContext, ReactNode } from 'react';
+    |          ^^^^^^^^
+  2 | import { apiClient } from '@/lib/api';
+  3 |
+  4 | interface User {
+
+Ecmascript file had an error
+
+Import trace:
+  Server Component:
+    ./src/hooks/useAuth.tsx
+    ./src/app/layout.tsx 
+    at handleErrors (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2773:21)
+    at processMessage (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2834:28)
+    at <unknown> (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2679:13)
+    at WebSocket.handleMessage (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2324:17) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2773:21)
+[browser] ./src/hooks/useAuth.tsx:1:31
+You're importing a module that depends on `createContext` into a React Server Component module. This API is only available in Client Components. To fix, mark the file (or its parent) with the `"use client"` directive.
+    Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+> 1 | import { useState, useEffect, createContext, useContext, ReactNode } from 'react';
+    |                               ^^^^^^^^^^^^^
+  2 | import { apiClient } from '@/lib/api';
+  3 |
+  4 | interface User {
+
+Ecmascript file had an error
+
+Import traces:
+  Server Component:
+    ./src/hooks/useAuth.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/hooks/useAuth.tsx [Client Component Browser]
+    ./src/app/login/page.tsx [Client Component Browser]
+    ./src/app/login/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/hooks/useAuth.tsx [Client Component SSR]
+    ./src/app/login/page.tsx [Client Component SSR]
+    ./src/app/login/page.tsx [Server Component] 
+    at handleErrors (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2773:21)
+    at processMessage (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2834:28)
+    at <unknown> (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2679:13)
+    at WebSocket.handleMessage (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2324:17) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2773:21)
+[browser] ./src/hooks/useAuth.tsx:1:20
+You're importing a module that depends on `useEffect` into a React Server Component module. This API is only available in Client Components. To fix, mark the file (or its parent) with the `"use client"` directive.
+    Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+> 1 | import { useState, useEffect, createContext, useContext, ReactNode } from 'react';
+    |                    ^^^^^^^^^
+  2 | import { apiClient } from '@/lib/api';
+  3 |
+  4 | interface User {
+
+Ecmascript file had an error
+
+Import traces:
+  Server Component:
+    ./src/hooks/useAuth.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/hooks/useAuth.tsx [Client Component Browser]
+    ./src/app/login/page.tsx [Client Component Browser]
+    ./src/app/login/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/hooks/useAuth.tsx [Client Component SSR]
+    ./src/app/login/page.tsx [Client Component SSR]
+    ./src/app/login/page.tsx [Server Component] 
+    at handleErrors (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2773:21)
+    at processMessage (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2834:28)
+    at <unknown> (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2679:13)
+    at WebSocket.handleMessage (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2324:17) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2773:21)
+[browser] ./src/hooks/useAuth.tsx:1:10
+You're importing a module that depends on `useState` into a React Server Component module. This API is only available in Client Components. To fix, mark the file (or its parent) with the `"use client"` directive.
+    Learn more: https://nextjs.org/docs/app/api-reference/directives/use-client
+> 1 | import { useState, useEffect, createContext, useContext, ReactNode } from 'react';
+    |          ^^^^^^^^
+  2 | import { apiClient } from '@/lib/api';
+  3 |
+  4 | interface User {
+
+Ecmascript file had an error
+
+Import traces:
+  Server Component:
+    ./src/hooks/useAuth.tsx
+    ./src/app/layout.tsx
+
+  Client Component Browser:
+    ./src/hooks/useAuth.tsx [Client Component Browser]
+    ./src/app/login/page.tsx [Client Component Browser]
+    ./src/app/login/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/hooks/useAuth.tsx [Client Component SSR]
+    ./src/app/login/page.tsx [Client Component SSR]
+    ./src/app/login/page.tsx [Server Component] 
+    at handleErrors (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2773:21)
+    at processMessage (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2834:28)
+    at <unknown> (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2679:13)
+    at WebSocket.handleMessage (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2324:17) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_next_dist_client_0pe1dg-._.js:2773:21)
+ GET /login 200 in 501ms (next.js: 307ms, proxy.ts: 45ms, application-code: 149ms)
+ GET /login 200 in 51ms (next.js: 14ms, proxy.ts: 787µs, application-code: 36ms)
+ GET /login 200 in 205ms (next.js: 10ms, proxy.ts: 19ms, application-code: 175ms)
+[browser] Login failed: AxiosError: Network Error
+    at XMLHttpRequest.handleError (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:4413:25)
+    at Axios.request (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:5187:49)
+    at async ApiClient.login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:157:26)
+    at async login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:290:30)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:307:21)
+[browser] Login error: AxiosError: Network Error
+    at XMLHttpRequest.handleError (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:4413:25)
+    at Axios.request (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:5187:49)
+    at async ApiClient.login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:157:26)
+    at async login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:290:30)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:154:21)
+ GET /login 200 in 68ms (next.js: 16ms, proxy.ts: 1699µs, application-code: 50ms)
+[browser] Login failed: AxiosError: Request failed with status code 401
+    at settle (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:3822:16)
+    at XMLHttpRequest.onloadend (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:4367:174)
+    at Axios.request (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:5187:49)
+    at async ApiClient.login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:157:26)
+    at async login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:290:30)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:307:21)
+[browser] Login error: AxiosError: Request failed with status code 401
+    at settle (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:3822:16)
+    at XMLHttpRequest.onloadend (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:4367:174)
+    at Axios.request (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:5187:49)
+    at async ApiClient.login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:157:26)
+    at async login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:290:30)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:154:21)
+[browser] Login failed: AxiosError: Request failed with status code 401
+    at settle (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:3822:16)
+    at XMLHttpRequest.onloadend (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:4367:174)
+    at Axios.request (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:5187:49)
+    at async ApiClient.login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:157:26)
+    at async login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:290:30)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:307:21)
+[browser] Login error: AxiosError: Request failed with status code 401
+    at settle (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:3822:16)
+    at XMLHttpRequest.onloadend (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:4367:174)
+    at Axios.request (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:5187:49)
+    at async ApiClient.login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:157:26)
+    at async login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:290:30)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:154:21)
+ GET /login 200 in 291ms (next.js: 27ms, proxy.ts: 4ms, application-code: 260ms)
+[browser] Login failed: AxiosError: Request failed with status code 401
+    at settle (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:3822:16)
+    at XMLHttpRequest.onloadend (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:4367:174)
+    at Axios.request (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:5187:49)
+    at async ApiClient.login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:157:26)
+    at async login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:290:30)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:307:21)
+[browser] Login error: AxiosError: Request failed with status code 401
+    at settle (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:3822:16)
+    at XMLHttpRequest.onloadend (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:4367:174)
+    at Axios.request (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:5187:49)
+    at async ApiClient.login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:157:26)
+    at async login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:290:30)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:154:21)
+[browser] Login failed: AxiosError: Request failed with status code 401
+    at settle (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:3822:16)
+    at XMLHttpRequest.onloadend (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:4367:174)
+    at Axios.request (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:5187:49)
+    at async ApiClient.login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:157:26)
+    at async login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:290:30)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:307:21)
+[browser] Login error: AxiosError: Request failed with status code 401
+    at settle (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:3822:16)
+    at XMLHttpRequest.onloadend (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:4367:174)
+    at Axios.request (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:5187:49)
+    at async ApiClient.login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:157:26)
+    at async login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:290:30)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:154:21)
+[browser] Login failed: AxiosError: Request failed with status code 401
+    at settle (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:3822:16)
+    at XMLHttpRequest.onloadend (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:4367:174)
+    at Axios.request (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:5187:49)
+    at async ApiClient.login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:157:26)
+    at async login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:290:30)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:307:21)
+[browser] Login error: AxiosError: Request failed with status code 401
+    at settle (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:3822:16)
+    at XMLHttpRequest.onloadend (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:4367:174)
+    at Axios.request (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:5187:49)
+    at async ApiClient.login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:157:26)
+    at async login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:290:30)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:154:21)
+ GET /login 200 in 155ms (next.js: 17ms, proxy.ts: 3ms, application-code: 136ms)
+[browser] Login failed: AxiosError: Request failed with status code 401
+    at settle (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:3822:16)
+    at XMLHttpRequest.onloadend (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:4367:174)
+    at Axios.request (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:5187:49)
+    at async ApiClient.login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:157:26)
+    at async login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:290:30)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:307:21)
+[browser] Login error: AxiosError: Request failed with status code 401
+    at settle (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:3822:16)
+    at XMLHttpRequest.onloadend (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:4367:174)
+    at Axios.request (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:5187:49)
+    at async ApiClient.login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:157:26)
+    at async login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:290:30)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:154:21)
+[browser] Login failed: AxiosError: Request failed with status code 401
+    at settle (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:3822:16)
+    at XMLHttpRequest.onloadend (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:4367:174)
+    at Axios.request (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:5187:49)
+    at async ApiClient.login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:157:26)
+    at async login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:290:30)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:307:21)
+[browser] Login error: AxiosError: Request failed with status code 401
+    at settle (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:3822:16)
+    at XMLHttpRequest.onloadend (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:4367:174)
+    at Axios.request (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:5187:49)
+    at async ApiClient.login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:157:26)
+    at async login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:290:30)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:154:21)
+⚠ Fast Refresh had to perform a full reload when ./src/lib/api.ts changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 82ms
+ GET /login 200 in 66ms (next.js: 14ms, proxy.ts: 11ms, application-code: 41ms)
+⚠ Fast Refresh had to perform a full reload when ./src/lib/api.ts changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 45ms
+ GET /login 200 in 60ms (next.js: 5ms, proxy.ts: 1603µs, application-code: 54ms)
+⚠ Fast Refresh had to perform a full reload when ./src/lib/api.ts changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 43ms
+ GET /login 200 in 84ms (next.js: 24ms, proxy.ts: 8ms, application-code: 52ms)
+⚠ Fast Refresh had to perform a full reload when ./src/lib/api.ts changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 39ms
+ GET /login 200 in 113ms (next.js: 33ms, proxy.ts: 7ms, application-code: 73ms)
+ GET /login 200 in 152ms (next.js: 7ms, proxy.ts: 3ms, application-code: 143ms)
+[browser] API Error: AxiosError: Request failed with status code 401
+    at settle (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:3822:16)
+    at XMLHttpRequest.onloadend (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:4367:174) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:50:21)
+[browser] Error response: {
+  config: {
+    adapter: [ [32m'xhr'[39m, [32m'http'[39m, [32m'fetch'[39m ],
+    allowAbsoluteUrls: [33mtrue[39m,
+    baseURL: [32m'http://localhost:8086/api/v1'[39m,
+    data: [32m'{"email":"contacto@techstore.cl","password":"Temp123!@#"}'[39m,
+    env: {},
+    headers: [32m'[object AxiosHeaders]'[39m,
+    maxBodyLength: [33m-1[39m,
+    maxContentLength: [33m-1[39m,
+    method: [32m'post'[39m,
+    timeout: [33m10000[39m,
+    transformRequest: [ [1mnull[22m ],
+    transformResponse: [ [1mnull[22m ],
+    transitional: {
+      clarifyTimeoutError: [33mfalse[39m,
+      forcedJSONParsing: [33mtrue[39m,
+      legacyInterceptorReqResOrdering: [33mtrue[39m,
+      silentJSONParsing: [33mtrue[39m
+    },
+    url: [32m'http://localhost:8085/api/v1/auth/login'[39m,
+    xsrfCookieName: [32m'XSRF-TOKEN'[39m,
+    xsrfHeaderName: [32m'X-XSRF-TOKEN'[39m
+  },
+  data: {
+    message: [32m'Credenciales inválidas'[39m,
+    status: [33m401[39m,
+    timestamp: [33m1777954580967[39m
+  },
+  headers: [32m'[object AxiosHeaders]'[39m,
+  request: [32m'[object XMLHttpRequest]'[39m,
+  status: [33m401[39m,
+  statusText: [32m''[39m
+} 
+    at <unknown> (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:51:21)
+    at async Axios.request (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:5183:20)
+    at async ApiClient.login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:157:26)
+    at async login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:290:30)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:51:21)
+[browser] Error data: {
+  message: [32m'Credenciales inválidas'[39m,
+  status: [33m401[39m,
+  timestamp: [33m1777954580967[39m
+} 
+    at <unknown> (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:52:21)
+    at async Axios.request (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:5183:20)
+    at async ApiClient.login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:157:26)
+    at async login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:290:30)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:52:21)
+[browser] Login failed: { details: [90mundefined[39m, message: [32m'Credenciales inválidas'[39m, status: [33m401[39m } 
+    at login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:307:21)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:307:21)
+[browser] Login error: { details: [90mundefined[39m, message: [32m'Credenciales inválidas'[39m, status: [33m401[39m } 
+    at handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:154:21) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:154:21)
+ GET /login 200 in 69ms (next.js: 17ms, proxy.ts: 5ms, application-code: 47ms)
+[browser] API Error: AxiosError: Request failed with status code 401
+    at settle (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:3822:16)
+    at XMLHttpRequest.onloadend (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:4367:174) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:50:21)
+[browser] Error response: {
+  config: {
+    adapter: [ [32m'xhr'[39m, [32m'http'[39m, [32m'fetch'[39m ],
+    allowAbsoluteUrls: [33mtrue[39m,
+    baseURL: [32m'http://localhost:8086/api/v1'[39m,
+    data: [32m'{"email":"contacto@techstore.cl","password":"Temp123!@#"}'[39m,
+    env: {},
+    headers: [32m'[object AxiosHeaders]'[39m,
+    maxBodyLength: [33m-1[39m,
+    maxContentLength: [33m-1[39m,
+    method: [32m'post'[39m,
+    timeout: [33m10000[39m,
+    transformRequest: [ [1mnull[22m ],
+    transformResponse: [ [1mnull[22m ],
+    transitional: {
+      clarifyTimeoutError: [33mfalse[39m,
+      forcedJSONParsing: [33mtrue[39m,
+      legacyInterceptorReqResOrdering: [33mtrue[39m,
+      silentJSONParsing: [33mtrue[39m
+    },
+    url: [32m'http://localhost:8085/api/v1/auth/login'[39m,
+    xsrfCookieName: [32m'XSRF-TOKEN'[39m,
+    xsrfHeaderName: [32m'X-XSRF-TOKEN'[39m
+  },
+  data: {
+    message: [32m'Credenciales inválidas'[39m,
+    status: [33m401[39m,
+    timestamp: [33m1777954596282[39m
+  },
+  headers: [32m'[object AxiosHeaders]'[39m,
+  request: [32m'[object XMLHttpRequest]'[39m,
+  status: [33m401[39m,
+  statusText: [32m''[39m
+} 
+    at <unknown> (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:51:21)
+    at async Axios.request (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:5183:20)
+    at async ApiClient.login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:157:26)
+    at async login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:290:30)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:51:21)
+[browser] Error data: {
+  message: [32m'Credenciales inválidas'[39m,
+  status: [33m401[39m,
+  timestamp: [33m1777954596282[39m
+} 
+    at <unknown> (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:52:21)
+    at async Axios.request (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:5183:20)
+    at async ApiClient.login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:157:26)
+    at async login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:290:30)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:52:21)
+[browser] Login failed: { details: [90mundefined[39m, message: [32m'Credenciales inválidas'[39m, status: [33m401[39m } 
+    at login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:307:21)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:307:21)
+[browser] Login error: { details: [90mundefined[39m, message: [32m'Credenciales inválidas'[39m, status: [33m401[39m } 
+    at handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:154:21) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:154:21)
+ GET /login 200 in 61ms (next.js: 5ms, proxy.ts: 3ms, application-code: 52ms)
+ GET /login 200 in 27ms (next.js: 5ms, proxy.ts: 2ms, application-code: 20ms)
+ GET /login 200 in 47ms (next.js: 6ms, proxy.ts: 4ms, application-code: 38ms)
+ GET /login 200 in 58ms (next.js: 19ms, proxy.ts: 6ms, application-code: 33ms)
+[browser] API Error: AxiosError: Request failed with status code 401
+    at settle (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:3822:16)
+    at XMLHttpRequest.onloadend (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:4367:174) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:50:21)
+[browser] Error response: {
+  config: {
+    adapter: [ [32m'xhr'[39m, [32m'http'[39m, [32m'fetch'[39m ],
+    allowAbsoluteUrls: [33mtrue[39m,
+    baseURL: [32m'http://localhost:8086/api/v1'[39m,
+    data: [32m'{"email":"contacto@techstore.cl","password":"Temp123!@#"}'[39m,
+    env: {},
+    headers: [32m'[object AxiosHeaders]'[39m,
+    maxBodyLength: [33m-1[39m,
+    maxContentLength: [33m-1[39m,
+    method: [32m'post'[39m,
+    timeout: [33m10000[39m,
+    transformRequest: [ [1mnull[22m ],
+    transformResponse: [ [1mnull[22m ],
+    transitional: {
+      clarifyTimeoutError: [33mfalse[39m,
+      forcedJSONParsing: [33mtrue[39m,
+      legacyInterceptorReqResOrdering: [33mtrue[39m,
+      silentJSONParsing: [33mtrue[39m
+    },
+    url: [32m'http://localhost:8085/api/v1/auth/login'[39m,
+    xsrfCookieName: [32m'XSRF-TOKEN'[39m,
+    xsrfHeaderName: [32m'X-XSRF-TOKEN'[39m
+  },
+  data: {
+    message: [32m'Credenciales inválidas'[39m,
+    status: [33m401[39m,
+    timestamp: [33m1777954632187[39m
+  },
+  headers: [32m'[object AxiosHeaders]'[39m,
+  request: [32m'[object XMLHttpRequest]'[39m,
+  status: [33m401[39m,
+  statusText: [32m''[39m
+} 
+    at <unknown> (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:51:21)
+    at async Axios.request (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:5183:20)
+    at async ApiClient.login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:157:26)
+    at async login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:290:30)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:51:21)
+[browser] Error data: {
+  message: [32m'Credenciales inválidas'[39m,
+  status: [33m401[39m,
+  timestamp: [33m1777954632187[39m
+} 
+    at <unknown> (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:52:21)
+    at async Axios.request (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:5183:20)
+    at async ApiClient.login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:157:26)
+    at async login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:290:30)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:52:21)
+[browser] Login failed: { details: [90mundefined[39m, message: [32m'Credenciales inválidas'[39m, status: [33m401[39m } 
+    at login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:307:21)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:307:21)
+[browser] Login error: { details: [90mundefined[39m, message: [32m'Credenciales inválidas'[39m, status: [33m401[39m } 
+    at handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:154:21) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:154:21)
+ GET /login 200 in 121ms (next.js: 14ms, proxy.ts: 23ms, application-code: 84ms)
+ GET /login 200 in 42ms (next.js: 15ms, proxy.ts: 3ms, application-code: 24ms)
+ GET /login 200 in 15ms (next.js: 3ms, proxy.ts: 1473µs, application-code: 10ms)
+ GET /login 200 in 97ms (next.js: 12ms, proxy.ts: 25ms, application-code: 61ms)
+ GET /login 200 in 69ms (next.js: 10ms, proxy.ts: 6ms, application-code: 53ms)
+ GET /login 200 in 80ms (next.js: 48ms, proxy.ts: 22ms, application-code: 11ms)
+⚠ Fast Refresh had to perform a full reload when ./src/hooks/useAuth.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 58ms
+ GET /login 200 in 77ms (next.js: 15ms, proxy.ts: 7ms, application-code: 55ms)
+ GET /login 200 in 94ms (next.js: 17ms, proxy.ts: 17ms, application-code: 60ms)
+ GET /login 200 in 45ms (next.js: 14ms, proxy.ts: 17ms, application-code: 14ms)
+ GET /login 200 in 73ms (next.js: 10ms, proxy.ts: 10ms, application-code: 53ms)
+ GET /login 200 in 33ms (next.js: 16ms, proxy.ts: 4ms, application-code: 12ms)
+ GET /login 200 in 22ms (next.js: 2ms, proxy.ts: 2ms, application-code: 18ms)
+ GET /login 200 in 20ms (next.js: 3ms, proxy.ts: 14ms, application-code: 3ms)
+ GET /login 200 in 27ms (next.js: 5ms, proxy.ts: 1296µs, application-code: 20ms)
+ GET /login 200 in 11ms (next.js: 4ms, proxy.ts: 3ms, application-code: 5ms)
+ GET /login 200 in 38ms (next.js: 1402µs, proxy.ts: 3ms, application-code: 35ms)
+ GET /login 200 in 6ms (next.js: 1747µs, proxy.ts: 1440µs, application-code: 3ms)
+⚠ Fast Refresh had to perform a full reload when ./src/hooks/useAuth.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 47ms
+ GET /login 200 in 48ms (next.js: 4ms, proxy.ts: 1957µs, application-code: 42ms)
+ GET /login 200 in 11ms (next.js: 3ms, proxy.ts: 4ms, application-code: 4ms)
+ GET /login 200 in 75ms (next.js: 5ms, proxy.ts: 4ms, application-code: 67ms)
+ GET /login 200 in 17ms (next.js: 3ms, proxy.ts: 6ms, application-code: 9ms)
+ GET /login 200 in 29ms (next.js: 4ms, proxy.ts: 3ms, application-code: 22ms)
+ GET /login 200 in 8ms (next.js: 2ms, proxy.ts: 2ms, application-code: 4ms)
+ GET /login 200 in 29ms (next.js: 1703µs, proxy.ts: 1711µs, application-code: 25ms)
+ GET /login 200 in 14ms (next.js: 5ms, proxy.ts: 2ms, application-code: 6ms)
+ GET /login 200 in 44ms (next.js: 2ms, proxy.ts: 3ms, application-code: 39ms)
+ GET /login 200 in 7ms (next.js: 1751µs, proxy.ts: 1583µs, application-code: 3ms)
+ GET /login 200 in 51ms (next.js: 7ms, proxy.ts: 5ms, application-code: 39ms)
+ GET /login 200 in 8ms (next.js: 1899µs, proxy.ts: 1146µs, application-code: 5ms)
+ GET /login 200 in 29ms (next.js: 3ms, proxy.ts: 4ms, application-code: 23ms)
+ GET /login 200 in 9ms (next.js: 3ms, proxy.ts: 2ms, application-code: 3ms)
+⚠ Fast Refresh had to perform a full reload when ./src/hooks/useAuth.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 27ms
+ GET /login 200 in 44ms (next.js: 8ms, proxy.ts: 2ms, application-code: 34ms)
+ GET /login 200 in 7ms (next.js: 1538µs, proxy.ts: 3ms, application-code: 3ms)
+⚠ Fast Refresh had to perform a full reload when ./src/hooks/useAuth.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET /login 200 in 31ms (next.js: 3ms, proxy.ts: 1235µs, application-code: 27ms)
+✓ Compiled in 23ms
+ GET /login 200 in 13ms (next.js: 1835µs, proxy.ts: 4ms, application-code: 7ms)
+ GET /login 200 in 135ms (next.js: 4ms, proxy.ts: 6ms, application-code: 126ms)
+ GET /login 200 in 28ms (next.js: 4ms, proxy.ts: 12ms, application-code: 12ms)
+ GET /login 200 in 44ms (next.js: 6ms, proxy.ts: 4ms, application-code: 34ms)
+ GET /login 200 in 18ms (next.js: 1500µs, proxy.ts: 2ms, application-code: 14ms)
+ GET /login 200 in 45ms (next.js: 4ms, proxy.ts: 5ms, application-code: 37ms)
+ GET /login 200 in 8ms (next.js: 4ms, proxy.ts: 1568µs, application-code: 3ms)
+[browser] API Error: AxiosError: Request failed with status code 401
+    at settle (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:3822:16)
+    at XMLHttpRequest.onloadend (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:4367:174) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:50:21)
+[browser] Error response: {
+  config: {
+    adapter: [ [32m'xhr'[39m, [32m'http'[39m, [32m'fetch'[39m ],
+    allowAbsoluteUrls: [33mtrue[39m,
+    baseURL: [32m'http://localhost:8086/api/v1'[39m,
+    data: [32m'{"email":"contacto@techstore.cl","password":"Temp123!@#"}'[39m,
+    env: {},
+    headers: [32m'[object AxiosHeaders]'[39m,
+    maxBodyLength: [33m-1[39m,
+    maxContentLength: [33m-1[39m,
+    method: [32m'post'[39m,
+    timeout: [33m10000[39m,
+    transformRequest: [ [1mnull[22m ],
+    transformResponse: [ [1mnull[22m ],
+    transitional: {
+      clarifyTimeoutError: [33mfalse[39m,
+      forcedJSONParsing: [33mtrue[39m,
+      legacyInterceptorReqResOrdering: [33mtrue[39m,
+      silentJSONParsing: [33mtrue[39m
+    },
+    url: [32m'http://localhost:8085/api/v1/auth/login'[39m,
+    xsrfCookieName: [32m'XSRF-TOKEN'[39m,
+    xsrfHeaderName: [32m'X-XSRF-TOKEN'[39m
+  },
+  data: {
+    message: [32m'Credenciales inválidas'[39m,
+    status: [33m401[39m,
+    timestamp: [33m1777955254857[39m
+  },
+  headers: [32m'[object AxiosHeaders]'[39m,
+  request: [32m'[object XMLHttpRequest]'[39m,
+  status: [33m401[39m,
+  statusText: [32m''[39m
+} 
+    at <unknown> (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:51:21)
+    at async Axios.request (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:5183:20)
+    at async ApiClient.login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:157:26)
+    at async login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:290:30)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:51:21)
+[browser] Error data: {
+  message: [32m'Credenciales inválidas'[39m,
+  status: [33m401[39m,
+  timestamp: [33m1777955254857[39m
+} 
+    at <unknown> (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:52:21)
+    at async Axios.request (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:5183:20)
+    at async ApiClient.login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:157:26)
+    at async login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:290:30)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:52:21)
+[browser] Login failed: { details: [90mundefined[39m, message: [32m'Credenciales inválidas'[39m, status: [33m401[39m } 
+    at login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:321:21)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:321:21)
+[browser] Login error: { details: [90mundefined[39m, message: [32m'Credenciales inválidas'[39m, status: [33m401[39m } 
+    at handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:154:21) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:154:21)
+ GET /login 200 in 79ms (next.js: 10ms, proxy.ts: 6ms, application-code: 63ms)
+[browser] API Error: AxiosError: Request failed with status code 401
+    at settle (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:3822:16)
+    at XMLHttpRequest.onloadend (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:4367:174) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:50:21)
+[browser] Error response: {
+  config: {
+    adapter: [ [32m'xhr'[39m, [32m'http'[39m, [32m'fetch'[39m ],
+    allowAbsoluteUrls: [33mtrue[39m,
+    baseURL: [32m'http://localhost:8086/api/v1'[39m,
+    data: [32m'{"email":"admin@techstore.cl","password":"admintech123"}'[39m,
+    env: {},
+    headers: [32m'[object AxiosHeaders]'[39m,
+    maxBodyLength: [33m-1[39m,
+    maxContentLength: [33m-1[39m,
+    method: [32m'post'[39m,
+    timeout: [33m10000[39m,
+    transformRequest: [ [1mnull[22m ],
+    transformResponse: [ [1mnull[22m ],
+    transitional: {
+      clarifyTimeoutError: [33mfalse[39m,
+      forcedJSONParsing: [33mtrue[39m,
+      legacyInterceptorReqResOrdering: [33mtrue[39m,
+      silentJSONParsing: [33mtrue[39m
+    },
+    url: [32m'http://localhost:8085/api/v1/auth/login'[39m,
+    xsrfCookieName: [32m'XSRF-TOKEN'[39m,
+    xsrfHeaderName: [32m'X-XSRF-TOKEN'[39m
+  },
+  data: {
+    message: [32m'Credenciales inválidas'[39m,
+    status: [33m401[39m,
+    timestamp: [33m1777955266577[39m
+  },
+  headers: [32m'[object AxiosHeaders]'[39m,
+  request: [32m'[object XMLHttpRequest]'[39m,
+  status: [33m401[39m,
+  statusText: [32m''[39m
+} 
+    at <unknown> (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:51:21)
+    at async Axios.request (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:5183:20)
+    at async ApiClient.login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:157:26)
+    at async login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:290:30)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:51:21)
+[browser] Error data: {
+  message: [32m'Credenciales inválidas'[39m,
+  status: [33m401[39m,
+  timestamp: [33m1777955266577[39m
+} 
+    at <unknown> (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:52:21)
+    at async Axios.request (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:5183:20)
+    at async ApiClient.login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:157:26)
+    at async login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:290:30)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:52:21)
+[browser] Login failed: { details: [90mundefined[39m, message: [32m'Credenciales inválidas'[39m, status: [33m401[39m } 
+    at login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:321:21)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:321:21)
+[browser] Login error: { details: [90mundefined[39m, message: [32m'Credenciales inválidas'[39m, status: [33m401[39m } 
+    at handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:154:21) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:154:21)
+ GET /login 200 in 53ms (next.js: 9ms, proxy.ts: 7ms, application-code: 37ms)
+⚠ Fast Refresh had to perform a full reload when ./src/hooks/useAuth.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 28ms
+ GET /login 200 in 133ms (next.js: 7ms, proxy.ts: 3ms, application-code: 124ms)
+ GET /login 200 in 66ms (next.js: 12ms, proxy.ts: 5ms, application-code: 49ms)
+ GET /login 200 in 9ms (next.js: 2ms, proxy.ts: 942µs, application-code: 5ms)
+ GET /login 200 in 38ms (next.js: 3ms, proxy.ts: 3ms, application-code: 32ms)
+ GET /login 200 in 6ms (next.js: 1696µs, proxy.ts: 1214µs, application-code: 4ms)
+ GET /login 200 in 45ms (next.js: 7ms, proxy.ts: 3ms, application-code: 34ms)
+ GET /login 200 in 6ms (next.js: 1129µs, proxy.ts: 1852µs, application-code: 3ms)
+ GET /login 200 in 34ms (next.js: 3ms, proxy.ts: 3ms, application-code: 28ms)
+ GET /login 200 in 8ms (next.js: 2ms, proxy.ts: 2ms, application-code: 4ms)
+ GET /login 200 in 49ms (next.js: 4ms, proxy.ts: 11ms, application-code: 33ms)
+ GET /login 200 in 5ms (next.js: 1199µs, proxy.ts: 1167µs, application-code: 3ms)
+ GET /login 200 in 44ms (next.js: 3ms, proxy.ts: 3ms, application-code: 38ms)
+ GET /login 200 in 7ms (next.js: 1384µs, proxy.ts: 1055µs, application-code: 4ms)
+ GET /login 200 in 44ms (next.js: 6ms, proxy.ts: 3ms, application-code: 34ms)
+ GET /login 200 in 6ms (next.js: 1317µs, proxy.ts: 1837µs, application-code: 3ms)
+ GET /login 200 in 34ms (next.js: 3ms, proxy.ts: 3ms, application-code: 28ms)
+ GET /login 200 in 10ms (next.js: 3ms, proxy.ts: 1881µs, application-code: 5ms)
+⚠ Fast Refresh had to perform a full reload when ./src/hooks/useAuth.tsx changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+✓ Compiled in 25ms
+ GET /login 200 in 82ms (next.js: 24ms, proxy.ts: 10ms, application-code: 48ms)
+ GET /login 200 in 25ms (next.js: 4ms, proxy.ts: 15ms, application-code: 5ms)
+ GET /login 200 in 68ms (next.js: 6ms, proxy.ts: 9ms, application-code: 54ms)
+ GET /login 200 in 32ms (next.js: 7ms, proxy.ts: 10ms, application-code: 15ms)
+ GET /login 200 in 74ms (next.js: 7ms, proxy.ts: 1565µs, application-code: 65ms)
+ GET /login 200 in 7ms (next.js: 1464µs, proxy.ts: 2ms, application-code: 4ms)
+ GET /login 200 in 24ms (next.js: 3ms, proxy.ts: 1943µs, application-code: 19ms)
+ GET /login 200 in 6ms (next.js: 2ms, proxy.ts: 1126µs, application-code: 2ms)
+ GET /login 200 in 39ms (next.js: 7ms, proxy.ts: 4ms, application-code: 28ms)
+ GET /login 200 in 7ms (next.js: 961µs, proxy.ts: 956µs, application-code: 5ms)
+ GET /login 200 in 25ms (next.js: 1397µs, proxy.ts: 1829µs, application-code: 22ms)
+ GET /login 200 in 5ms (next.js: 987µs, proxy.ts: 846µs, application-code: 3ms)
+ GET /login 200 in 39ms (next.js: 11ms, proxy.ts: 1946µs, application-code: 26ms)
+ GET /login 200 in 9ms (next.js: 3ms, proxy.ts: 986µs, application-code: 5ms)
+ GET /login 200 in 31ms (next.js: 2ms, proxy.ts: 3ms, application-code: 26ms)
+ GET /login 200 in 6ms (next.js: 1098µs, proxy.ts: 1023µs, application-code: 4ms)
+ GET /login 200 in 68ms (next.js: 10ms, proxy.ts: 12ms, application-code: 46ms)
+ GET /login 200 in 24ms (next.js: 18ms, proxy.ts: 1546µs, application-code: 4ms)
+ GET /login 200 in 38ms (next.js: 4ms, proxy.ts: 3ms, application-code: 31ms)
+ GET /login 200 in 6ms (next.js: 1063µs, proxy.ts: 981µs, application-code: 4ms)
+[browser] API Error: AxiosError: Request failed with status code 401
+    at settle (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:3822:16)
+    at XMLHttpRequest.onloadend (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:4367:174) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:50:21)
+[browser] Error response: {
+  config: {
+    adapter: [ [32m'xhr'[39m, [32m'http'[39m, [32m'fetch'[39m ],
+    allowAbsoluteUrls: [33mtrue[39m,
+    baseURL: [32m'http://localhost:8086/api/v1'[39m,
+    data: [32m'{"email":"admin@techstore.cl","password":"admintech123"}'[39m,
+    env: {},
+    headers: [32m'[object AxiosHeaders]'[39m,
+    maxBodyLength: [33m-1[39m,
+    maxContentLength: [33m-1[39m,
+    method: [32m'post'[39m,
+    timeout: [33m10000[39m,
+    transformRequest: [ [1mnull[22m ],
+    transformResponse: [ [1mnull[22m ],
+    transitional: {
+      clarifyTimeoutError: [33mfalse[39m,
+      forcedJSONParsing: [33mtrue[39m,
+      legacyInterceptorReqResOrdering: [33mtrue[39m,
+      silentJSONParsing: [33mtrue[39m
+    },
+    url: [32m'http://localhost:8085/api/v1/auth/login'[39m,
+    xsrfCookieName: [32m'XSRF-TOKEN'[39m,
+    xsrfHeaderName: [32m'X-XSRF-TOKEN'[39m
+  },
+  data: {
+    message: [32m'Credenciales inválidas'[39m,
+    status: [33m401[39m,
+    timestamp: [33m1777955844747[39m
+  },
+  headers: [32m'[object AxiosHeaders]'[39m,
+  request: [32m'[object XMLHttpRequest]'[39m,
+  status: [33m401[39m,
+  statusText: [32m''[39m
+} 
+    at <unknown> (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:51:21)
+    at async Axios.request (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:5183:20)
+    at async ApiClient.login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:157:26)
+    at async login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:291:30)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:51:21)
+[browser] Error data: {
+  message: [32m'Credenciales inválidas'[39m,
+  status: [33m401[39m,
+  timestamp: [33m1777955844747[39m
+} 
+    at <unknown> (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:52:21)
+    at async Axios.request (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:5183:20)
+    at async ApiClient.login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:157:26)
+    at async login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:291:30)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:52:21)
+[browser] Login failed: { details: [90mundefined[39m, message: [32m'Credenciales inválidas'[39m, status: [33m401[39m } 
+    at login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:318:21)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:318:21)
+[browser] Login error: { details: [90mundefined[39m, message: [32m'Credenciales inválidas'[39m, status: [33m401[39m } 
+    at handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:154:21) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:154:21)
+ GET /login 200 in 72ms (next.js: 3ms, proxy.ts: 4ms, application-code: 65ms)
+[browser] API Error: AxiosError: Request failed with status code 401
+    at settle (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:3822:16)
+    at XMLHttpRequest.onloadend (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:4367:174) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:50:21)
+[browser] Error response: {
+  config: {
+    adapter: [ [32m'xhr'[39m, [32m'http'[39m, [32m'fetch'[39m ],
+    allowAbsoluteUrls: [33mtrue[39m,
+    baseURL: [32m'http://localhost:8086/api/v1'[39m,
+    data: [32m'{"email":"admin@techstore.cl","password":"admintech123"}'[39m,
+    env: {},
+    headers: [32m'[object AxiosHeaders]'[39m,
+    maxBodyLength: [33m-1[39m,
+    maxContentLength: [33m-1[39m,
+    method: [32m'post'[39m,
+    timeout: [33m10000[39m,
+    transformRequest: [ [1mnull[22m ],
+    transformResponse: [ [1mnull[22m ],
+    transitional: {
+      clarifyTimeoutError: [33mfalse[39m,
+      forcedJSONParsing: [33mtrue[39m,
+      legacyInterceptorReqResOrdering: [33mtrue[39m,
+      silentJSONParsing: [33mtrue[39m
+    },
+    url: [32m'http://localhost:8085/api/v1/auth/login'[39m,
+    xsrfCookieName: [32m'XSRF-TOKEN'[39m,
+    xsrfHeaderName: [32m'X-XSRF-TOKEN'[39m
+  },
+  data: {
+    message: [32m'Credenciales inválidas'[39m,
+    status: [33m401[39m,
+    timestamp: [33m1777955856920[39m
+  },
+  headers: [32m'[object AxiosHeaders]'[39m,
+  request: [32m'[object XMLHttpRequest]'[39m,
+  status: [33m401[39m,
+  statusText: [32m''[39m
+} 
+    at <unknown> (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:51:21)
+    at async Axios.request (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:5183:20)
+    at async ApiClient.login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:157:26)
+    at async login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:291:30)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:51:21)
+[browser] Error data: {
+  message: [32m'Credenciales inválidas'[39m,
+  status: [33m401[39m,
+  timestamp: [33m1777955856920[39m
+} 
+    at <unknown> (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:52:21)
+    at async Axios.request (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:5183:20)
+    at async ApiClient.login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:157:26)
+    at async login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:291:30)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:52:21)
+[browser] Login failed: { details: [90mundefined[39m, message: [32m'Credenciales inválidas'[39m, status: [33m401[39m } 
+    at login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:318:21)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:318:21)
+[browser] Login error: { details: [90mundefined[39m, message: [32m'Credenciales inválidas'[39m, status: [33m401[39m } 
+    at handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:154:21) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:154:21)
+ GET /login 200 in 48ms (next.js: 4ms, proxy.ts: 4ms, application-code: 39ms)
+[browser] API Error: AxiosError: Request failed with status code 401
+    at settle (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:3822:16)
+    at XMLHttpRequest.onloadend (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:4367:174) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:50:21)
+[browser] Error response: {
+  config: {
+    adapter: [ [32m'xhr'[39m, [32m'http'[39m, [32m'fetch'[39m ],
+    allowAbsoluteUrls: [33mtrue[39m,
+    baseURL: [32m'http://localhost:8086/api/v1'[39m,
+    data: [32m'{"email":"admin@techstore.cl","password":"admintech123"}'[39m,
+    env: {},
+    headers: [32m'[object AxiosHeaders]'[39m,
+    maxBodyLength: [33m-1[39m,
+    maxContentLength: [33m-1[39m,
+    method: [32m'post'[39m,
+    timeout: [33m10000[39m,
+    transformRequest: [ [1mnull[22m ],
+    transformResponse: [ [1mnull[22m ],
+    transitional: {
+      clarifyTimeoutError: [33mfalse[39m,
+      forcedJSONParsing: [33mtrue[39m,
+      legacyInterceptorReqResOrdering: [33mtrue[39m,
+      silentJSONParsing: [33mtrue[39m
+    },
+    url: [32m'http://localhost:8085/api/v1/auth/login'[39m,
+    xsrfCookieName: [32m'XSRF-TOKEN'[39m,
+    xsrfHeaderName: [32m'X-XSRF-TOKEN'[39m
+  },
+  data: {
+    message: [32m'Credenciales inválidas'[39m,
+    status: [33m401[39m,
+    timestamp: [33m1777955872070[39m
+  },
+  headers: [32m'[object AxiosHeaders]'[39m,
+  request: [32m'[object XMLHttpRequest]'[39m,
+  status: [33m401[39m,
+  statusText: [32m''[39m
+} 
+    at <unknown> (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:51:21)
+    at async Axios.request (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:5183:20)
+    at async ApiClient.login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:157:26)
+    at async login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:291:30)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:51:21)
+[browser] Error data: {
+  message: [32m'Credenciales inválidas'[39m,
+  status: [33m401[39m,
+  timestamp: [33m1777955872070[39m
+} 
+    at <unknown> (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:52:21)
+    at async Axios.request (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:5183:20)
+    at async ApiClient.login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:157:26)
+    at async login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:291:30)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:52:21)
+[browser] Login failed: { details: [90mundefined[39m, message: [32m'Credenciales inválidas'[39m, status: [33m401[39m } 
+    at login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:318:21)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:318:21)
+[browser] Login error: { details: [90mundefined[39m, message: [32m'Credenciales inválidas'[39m, status: [33m401[39m } 
+    at handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:154:21) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:154:21)
+ GET /login 200 in 53ms (next.js: 5ms, proxy.ts: 3ms, application-code: 45ms)
+ GET /login 200 in 37ms (next.js: 7ms, proxy.ts: 4ms, application-code: 26ms)
+ GET /login 200 in 40ms (next.js: 3ms, proxy.ts: 3ms, application-code: 34ms)
+ GET /login 200 in 45ms (next.js: 3ms, proxy.ts: 3ms, application-code: 39ms)
+[browser] API Error: AxiosError: Request failed with status code 401
+    at settle (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:3822:16)
+    at XMLHttpRequest.onloadend (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:4367:174) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:50:21)
+[browser] Error response: {
+  config: {
+    adapter: [ [32m'xhr'[39m, [32m'http'[39m, [32m'fetch'[39m ],
+    allowAbsoluteUrls: [33mtrue[39m,
+    baseURL: [32m'http://localhost:8086/api/v1'[39m,
+    data: [32m'{"email":"admin@techstore.cl","password":"admintech123"}'[39m,
+    env: {},
+    headers: [32m'[object AxiosHeaders]'[39m,
+    maxBodyLength: [33m-1[39m,
+    maxContentLength: [33m-1[39m,
+    method: [32m'post'[39m,
+    timeout: [33m10000[39m,
+    transformRequest: [ [1mnull[22m ],
+    transformResponse: [ [1mnull[22m ],
+    transitional: {
+      clarifyTimeoutError: [33mfalse[39m,
+      forcedJSONParsing: [33mtrue[39m,
+      legacyInterceptorReqResOrdering: [33mtrue[39m,
+      silentJSONParsing: [33mtrue[39m
+    },
+    url: [32m'http://localhost:8085/api/v1/auth/login'[39m,
+    xsrfCookieName: [32m'XSRF-TOKEN'[39m,
+    xsrfHeaderName: [32m'X-XSRF-TOKEN'[39m
+  },
+  data: {
+    message: [32m'Credenciales inválidas'[39m,
+    status: [33m401[39m,
+    timestamp: [33m1777955906244[39m
+  },
+  headers: [32m'[object AxiosHeaders]'[39m,
+  request: [32m'[object XMLHttpRequest]'[39m,
+  status: [33m401[39m,
+  statusText: [32m''[39m
+} 
+    at <unknown> (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:51:21)
+    at async Axios.request (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:5183:20)
+    at async ApiClient.login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:157:26)
+    at async login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:291:30)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:51:21)
+[browser] Error data: {
+  message: [32m'Credenciales inválidas'[39m,
+  status: [33m401[39m,
+  timestamp: [33m1777955906244[39m
+} 
+    at <unknown> (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:52:21)
+    at async Axios.request (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:5183:20)
+    at async ApiClient.login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:157:26)
+    at async login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:291:30)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:52:21)
+[browser] Login failed: { details: [90mundefined[39m, message: [32m'Credenciales inválidas'[39m, status: [33m401[39m } 
+    at login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:318:21)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:318:21)
+[browser] Login error: { details: [90mundefined[39m, message: [32m'Credenciales inválidas'[39m, status: [33m401[39m } 
+    at handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:154:21) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:154:21)
+ GET /login 200 in 58ms (next.js: 9ms, proxy.ts: 14ms, application-code: 34ms)
+ GET /login 200 in 55ms (next.js: 3ms, proxy.ts: 6ms, application-code: 46ms)
+✓ Compiled in 52ms
+✓ Compiled in 14ms
+ GET /login 200 in 196ms (next.js: 16ms, proxy.ts: 9ms, application-code: 171ms)
+ GET /login 200 in 36ms (next.js: 6ms, proxy.ts: 4ms, application-code: 26ms)
+[browser] API Error: AxiosError: Request failed with status code 401
+    at settle (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:3822:16)
+    at XMLHttpRequest.onloadend (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:4367:174) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:50:21)
+[browser] Error response: {
+  config: {
+    adapter: [ [32m'xhr'[39m, [32m'http'[39m, [32m'fetch'[39m ],
+    allowAbsoluteUrls: [33mtrue[39m,
+    baseURL: [32m'http://localhost:8086/api/v1'[39m,
+    data: [32m'{"email":"admin@techstore.cl","password":"admintech123"}'[39m,
+    env: {},
+    headers: [32m'[object AxiosHeaders]'[39m,
+    maxBodyLength: [33m-1[39m,
+    maxContentLength: [33m-1[39m,
+    method: [32m'post'[39m,
+    timeout: [33m10000[39m,
+    transformRequest: [ [1mnull[22m ],
+    transformResponse: [ [1mnull[22m ],
+    transitional: {
+      clarifyTimeoutError: [33mfalse[39m,
+      forcedJSONParsing: [33mtrue[39m,
+      legacyInterceptorReqResOrdering: [33mtrue[39m,
+      silentJSONParsing: [33mtrue[39m
+    },
+    url: [32m'http://localhost:8085/api/v1/auth/login'[39m,
+    xsrfCookieName: [32m'XSRF-TOKEN'[39m,
+    xsrfHeaderName: [32m'X-XSRF-TOKEN'[39m
+  },
+  data: {
+    message: [32m'Credenciales inválidas'[39m,
+    status: [33m401[39m,
+    timestamp: [33m1777956079785[39m
+  },
+  headers: [32m'[object AxiosHeaders]'[39m,
+  request: [32m'[object XMLHttpRequest]'[39m,
+  status: [33m401[39m,
+  statusText: [32m''[39m
+} 
+    at <unknown> (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:51:21)
+    at async Axios.request (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:5183:20)
+    at async ApiClient.login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:157:26)
+    at async login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:291:30)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:51:21)
+[browser] Error data: {
+  message: [32m'Credenciales inválidas'[39m,
+  status: [33m401[39m,
+  timestamp: [33m1777956079785[39m
+} 
+    at <unknown> (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:52:21)
+    at async Axios.request (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:5183:20)
+    at async ApiClient.login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:157:26)
+    at async login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:291:30)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:52:21)
+[browser] Login failed: { details: [90mundefined[39m, message: [32m'Credenciales inválidas'[39m, status: [33m401[39m } 
+    at login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:318:21)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:318:21)
+[browser] Login error: { details: [90mundefined[39m, message: [32m'Credenciales inválidas'[39m, status: [33m401[39m } 
+    at handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:154:21) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:154:21)
+ GET /login 200 in 54ms (next.js: 9ms, proxy.ts: 4ms, application-code: 42ms)
+[browser] API Error: AxiosError: Request failed with status code 401
+    at settle (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:3822:16)
+    at XMLHttpRequest.onloadend (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:4367:174) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:50:21)
+[browser] Error response: {
+  config: {
+    adapter: [ [32m'xhr'[39m, [32m'http'[39m, [32m'fetch'[39m ],
+    allowAbsoluteUrls: [33mtrue[39m,
+    baseURL: [32m'http://localhost:8086/api/v1'[39m,
+    data: [32m'{"email":"admin@techstore.cl","password":"admintech123"}'[39m,
+    env: {},
+    headers: [32m'[object AxiosHeaders]'[39m,
+    maxBodyLength: [33m-1[39m,
+    maxContentLength: [33m-1[39m,
+    method: [32m'post'[39m,
+    timeout: [33m10000[39m,
+    transformRequest: [ [1mnull[22m ],
+    transformResponse: [ [1mnull[22m ],
+    transitional: {
+      clarifyTimeoutError: [33mfalse[39m,
+      forcedJSONParsing: [33mtrue[39m,
+      legacyInterceptorReqResOrdering: [33mtrue[39m,
+      silentJSONParsing: [33mtrue[39m
+    },
+    url: [32m'http://localhost:8085/api/v1/auth/login'[39m,
+    xsrfCookieName: [32m'XSRF-TOKEN'[39m,
+    xsrfHeaderName: [32m'X-XSRF-TOKEN'[39m
+  },
+  data: {
+    message: [32m'Credenciales inválidas'[39m,
+    status: [33m401[39m,
+    timestamp: [33m1777956089555[39m
+  },
+  headers: [32m'[object AxiosHeaders]'[39m,
+  request: [32m'[object XMLHttpRequest]'[39m,
+  status: [33m401[39m,
+  statusText: [32m''[39m
+} 
+    at <unknown> (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:51:21)
+    at async Axios.request (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:5183:20)
+    at async ApiClient.login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:157:26)
+    at async login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:291:30)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:51:21)
+[browser] Error data: {
+  message: [32m'Credenciales inválidas'[39m,
+  status: [33m401[39m,
+  timestamp: [33m1777956089555[39m
+} 
+    at <unknown> (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:52:21)
+    at async Axios.request (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:5183:20)
+    at async ApiClient.login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:157:26)
+    at async login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:291:30)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:52:21)
+[browser] Login failed: { details: [90mundefined[39m, message: [32m'Credenciales inválidas'[39m, status: [33m401[39m } 
+    at login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:318:21)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:318:21)
+[browser] Login error: { details: [90mundefined[39m, message: [32m'Credenciales inválidas'[39m, status: [33m401[39m } 
+    at handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:154:21) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:154:21)
+ GET /login 200 in 53ms (next.js: 9ms, proxy.ts: 4ms, application-code: 40ms)
+ GET /login 200 in 60ms (next.js: 14ms, proxy.ts: 11ms, application-code: 36ms)
+ GET /login 200 in 63ms (next.js: 9ms, proxy.ts: 22ms, application-code: 32ms)
+[browser] API Error: AxiosError: Request failed with status code 401
+    at settle (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:3822:16)
+    at XMLHttpRequest.onloadend (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:4367:174) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:50:21)
+[browser] Error response: {
+  config: {
+    adapter: [ [32m'xhr'[39m, [32m'http'[39m, [32m'fetch'[39m ],
+    allowAbsoluteUrls: [33mtrue[39m,
+    baseURL: [32m'http://localhost:8086/api/v1'[39m,
+    data: [32m'{"email":"admin@techstore.cl","password":"admintech123"}'[39m,
+    env: {},
+    headers: [32m'[object AxiosHeaders]'[39m,
+    maxBodyLength: [33m-1[39m,
+    maxContentLength: [33m-1[39m,
+    method: [32m'post'[39m,
+    timeout: [33m10000[39m,
+    transformRequest: [ [1mnull[22m ],
+    transformResponse: [ [1mnull[22m ],
+    transitional: {
+      clarifyTimeoutError: [33mfalse[39m,
+      forcedJSONParsing: [33mtrue[39m,
+      legacyInterceptorReqResOrdering: [33mtrue[39m,
+      silentJSONParsing: [33mtrue[39m
+    },
+    url: [32m'http://localhost:8085/api/v1/auth/login'[39m,
+    xsrfCookieName: [32m'XSRF-TOKEN'[39m,
+    xsrfHeaderName: [32m'X-XSRF-TOKEN'[39m
+  },
+  data: {
+    message: [32m'Credenciales inválidas'[39m,
+    status: [33m401[39m,
+    timestamp: [33m1777957002061[39m
+  },
+  headers: [32m'[object AxiosHeaders]'[39m,
+  request: [32m'[object XMLHttpRequest]'[39m,
+  status: [33m401[39m,
+  statusText: [32m''[39m
+} 
+    at <unknown> (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:51:21)
+    at async Axios.request (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:5183:20)
+    at async ApiClient.login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:157:26)
+    at async login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:291:30)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:51:21)
+[browser] Error data: {
+  message: [32m'Credenciales inválidas'[39m,
+  status: [33m401[39m,
+  timestamp: [33m1777957002061[39m
+} 
+    at <unknown> (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:52:21)
+    at async Axios.request (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:5183:20)
+    at async ApiClient.login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:157:26)
+    at async login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:291:30)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:52:21)
+[browser] Login failed: { details: [90mundefined[39m, message: [32m'Credenciales inválidas'[39m, status: [33m401[39m } 
+    at login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:318:21)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:318:21)
+[browser] Login error: { details: [90mundefined[39m, message: [32m'Credenciales inválidas'[39m, status: [33m401[39m } 
+    at handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:154:21) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:154:21)
+ GET /login 200 in 44ms (next.js: 5ms, proxy.ts: 1423µs, application-code: 37ms)
+[browser] API Error: AxiosError: Request failed with status code 401
+    at settle (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:3822:16)
+    at XMLHttpRequest.onloadend (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:4367:174) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:50:21)
+[browser] Error response: {
+  config: {
+    adapter: [ [32m'xhr'[39m, [32m'http'[39m, [32m'fetch'[39m ],
+    allowAbsoluteUrls: [33mtrue[39m,
+    baseURL: [32m'http://localhost:8086/api/v1'[39m,
+    data: [32m'{"email":"admin@techstore.cl","password":"admintech123"}'[39m,
+    env: {},
+    headers: [32m'[object AxiosHeaders]'[39m,
+    maxBodyLength: [33m-1[39m,
+    maxContentLength: [33m-1[39m,
+    method: [32m'post'[39m,
+    timeout: [33m10000[39m,
+    transformRequest: [ [1mnull[22m ],
+    transformResponse: [ [1mnull[22m ],
+    transitional: {
+      clarifyTimeoutError: [33mfalse[39m,
+      forcedJSONParsing: [33mtrue[39m,
+      legacyInterceptorReqResOrdering: [33mtrue[39m,
+      silentJSONParsing: [33mtrue[39m
+    },
+    url: [32m'http://localhost:8085/api/v1/auth/login'[39m,
+    xsrfCookieName: [32m'XSRF-TOKEN'[39m,
+    xsrfHeaderName: [32m'X-XSRF-TOKEN'[39m
+  },
+  data: {
+    message: [32m'Credenciales inválidas'[39m,
+    status: [33m401[39m,
+    timestamp: [33m1777957033194[39m
+  },
+  headers: [32m'[object AxiosHeaders]'[39m,
+  request: [32m'[object XMLHttpRequest]'[39m,
+  status: [33m401[39m,
+  statusText: [32m''[39m
+} 
+    at <unknown> (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:51:21)
+    at async Axios.request (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:5183:20)
+    at async ApiClient.login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:157:26)
+    at async login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:291:30)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:51:21)
+[browser] Error data: {
+  message: [32m'Credenciales inválidas'[39m,
+  status: [33m401[39m,
+  timestamp: [33m1777957033194[39m
+} 
+    at <unknown> (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:52:21)
+    at async Axios.request (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:5183:20)
+    at async ApiClient.login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:157:26)
+    at async login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:291:30)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:52:21)
+[browser] Login failed: { details: [90mundefined[39m, message: [32m'Credenciales inválidas'[39m, status: [33m401[39m } 
+    at login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:318:21)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:318:21)
+[browser] Login error: { details: [90mundefined[39m, message: [32m'Credenciales inválidas'[39m, status: [33m401[39m } 
+    at handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:154:21) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:154:21)
+ GET /login 200 in 47ms (next.js: 4ms, proxy.ts: 1815µs, application-code: 41ms)
+ GET /login 200 in 67ms (next.js: 7ms, proxy.ts: 21ms, application-code: 38ms)
+ GET /login 200 in 48ms (next.js: 6ms, proxy.ts: 4ms, application-code: 38ms)
+ GET /login 200 in 27ms (next.js: 2ms, proxy.ts: 1228µs, application-code: 23ms)
+ GET /login 200 in 9ms (next.js: 1637µs, proxy.ts: 1194µs, application-code: 7ms)
+ GET /login 200 in 31ms (next.js: 3ms, proxy.ts: 2ms, application-code: 26ms)
+ GET /login 200 in 7ms (next.js: 2ms, proxy.ts: 1175µs, application-code: 3ms)
+ GET /login 200 in 57ms (next.js: 5ms, proxy.ts: 9ms, application-code: 43ms)
+ GET /login 200 in 11ms (next.js: 2ms, proxy.ts: 1805µs, application-code: 6ms)
+ GET /login 200 in 26ms (next.js: 3ms, proxy.ts: 2ms, application-code: 20ms)
+ GET /login 200 in 7ms (next.js: 2ms, proxy.ts: 1315µs, application-code: 3ms)
+ GET /login 200 in 102ms (next.js: 7ms, proxy.ts: 11ms, application-code: 84ms)
+ GET /login 200 in 33ms (next.js: 16ms, proxy.ts: 7ms, application-code: 10ms)
+ GET /login 200 in 25ms (next.js: 3ms, proxy.ts: 1693µs, application-code: 20ms)
+ GET /login 200 in 6ms (next.js: 2ms, proxy.ts: 1250µs, application-code: 3ms)
+ GET /login 200 in 57ms (next.js: 6ms, proxy.ts: 12ms, application-code: 38ms)
+ GET /login 200 in 10ms (next.js: 2ms, proxy.ts: 1977µs, application-code: 5ms)
+ GET /login 200 in 20ms (next.js: 2ms, proxy.ts: 1862µs, application-code: 16ms)
+ GET /login 200 in 10ms (next.js: 1666µs, proxy.ts: 6ms, application-code: 3ms)
+[browser] API Error: AxiosError: Request failed with status code 401
+    at settle (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:3822:16)
+    at XMLHttpRequest.onloadend (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:4367:174) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:50:21)
+[browser] Error response: {
+  config: {
+    adapter: [ [32m'xhr'[39m, [32m'http'[39m, [32m'fetch'[39m ],
+    allowAbsoluteUrls: [33mtrue[39m,
+    baseURL: [32m'http://localhost:8086/api/v1'[39m,
+    data: [32m'{"email":"admin@techstore.cl","password":"admintech123"}'[39m,
+    env: {},
+    headers: [32m'[object AxiosHeaders]'[39m,
+    maxBodyLength: [33m-1[39m,
+    maxContentLength: [33m-1[39m,
+    method: [32m'post'[39m,
+    timeout: [33m10000[39m,
+    transformRequest: [ [1mnull[22m ],
+    transformResponse: [ [1mnull[22m ],
+    transitional: {
+      clarifyTimeoutError: [33mfalse[39m,
+      forcedJSONParsing: [33mtrue[39m,
+      legacyInterceptorReqResOrdering: [33mtrue[39m,
+      silentJSONParsing: [33mtrue[39m
+    },
+    url: [32m'http://localhost:8085/api/v1/auth/login'[39m,
+    xsrfCookieName: [32m'XSRF-TOKEN'[39m,
+    xsrfHeaderName: [32m'X-XSRF-TOKEN'[39m
+  },
+  data: {
+    message: [32m'Credenciales inválidas'[39m,
+    status: [33m401[39m,
+    timestamp: [33m1777957881596[39m
+  },
+  headers: [32m'[object AxiosHeaders]'[39m,
+  request: [32m'[object XMLHttpRequest]'[39m,
+  status: [33m401[39m,
+  statusText: [32m''[39m
+} 
+    at <unknown> (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:51:21)
+    at async Axios.request (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:5183:20)
+    at async ApiClient.login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:157:26)
+    at async login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:291:30)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:51:21)
+[browser] Error data: {
+  message: [32m'Credenciales inválidas'[39m,
+  status: [33m401[39m,
+  timestamp: [33m1777957881596[39m
+} 
+    at <unknown> (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:52:21)
+    at async Axios.request (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:5183:20)
+    at async ApiClient.login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:157:26)
+    at async login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:291:30)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:52:21)
+[browser] Login failed: { details: [90mundefined[39m, message: [32m'Credenciales inválidas'[39m, status: [33m401[39m } 
+    at login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:318:21)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:318:21)
+[browser] Login error: { details: [90mundefined[39m, message: [32m'Credenciales inválidas'[39m, status: [33m401[39m } 
+    at handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:154:21) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:154:21)
+ GET /login 200 in 105ms (next.js: 12ms, proxy.ts: 7ms, application-code: 87ms)
+ GET /login 200 in 72ms (next.js: 10ms, proxy.ts: 19ms, application-code: 44ms)
+[browser] API Error: AxiosError: Request failed with status code 401
+    at settle (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:3822:16)
+    at XMLHttpRequest.onloadend (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:4367:174) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:50:21)
+[browser] Error response: {
+  config: {
+    adapter: [ [32m'xhr'[39m, [32m'http'[39m, [32m'fetch'[39m ],
+    allowAbsoluteUrls: [33mtrue[39m,
+    baseURL: [32m'http://localhost:8086/api/v1'[39m,
+    data: [32m'{"email":"admin@techstore.cl","password":"admintech123"}'[39m,
+    env: {},
+    headers: [32m'[object AxiosHeaders]'[39m,
+    maxBodyLength: [33m-1[39m,
+    maxContentLength: [33m-1[39m,
+    method: [32m'post'[39m,
+    timeout: [33m10000[39m,
+    transformRequest: [ [1mnull[22m ],
+    transformResponse: [ [1mnull[22m ],
+    transitional: {
+      clarifyTimeoutError: [33mfalse[39m,
+      forcedJSONParsing: [33mtrue[39m,
+      legacyInterceptorReqResOrdering: [33mtrue[39m,
+      silentJSONParsing: [33mtrue[39m
+    },
+    url: [32m'http://localhost:8085/api/v1/auth/login'[39m,
+    xsrfCookieName: [32m'XSRF-TOKEN'[39m,
+    xsrfHeaderName: [32m'X-XSRF-TOKEN'[39m
+  },
+  data: {
+    message: [32m'Credenciales inválidas'[39m,
+    status: [33m401[39m,
+    timestamp: [33m1777958185493[39m
+  },
+  headers: [32m'[object AxiosHeaders]'[39m,
+  request: [32m'[object XMLHttpRequest]'[39m,
+  status: [33m401[39m,
+  statusText: [32m''[39m
+} 
+    at <unknown> (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:51:21)
+    at async Axios.request (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:5183:20)
+    at async ApiClient.login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:157:26)
+    at async login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:291:30)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:51:21)
+[browser] Error data: {
+  message: [32m'Credenciales inválidas'[39m,
+  status: [33m401[39m,
+  timestamp: [33m1777958185493[39m
+} 
+    at <unknown> (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:52:21)
+    at async Axios.request (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:5183:20)
+    at async ApiClient.login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:157:26)
+    at async login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:291:30)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:52:21)
+[browser] Login failed: { details: [90mundefined[39m, message: [32m'Credenciales inválidas'[39m, status: [33m401[39m } 
+    at login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:318:21)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:318:21)
+[browser] Login error: { details: [90mundefined[39m, message: [32m'Credenciales inválidas'[39m, status: [33m401[39m } 
+    at handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:154:21) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:154:21)
+ GET /login 200 in 52ms (next.js: 11ms, proxy.ts: 4ms, application-code: 38ms)
+[browser] API Error: AxiosError: Request failed with status code 401
+    at settle (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:3822:16)
+    at XMLHttpRequest.onloadend (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:4367:174) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:50:21)
+[browser] Error response: {
+  config: {
+    adapter: [ [32m'xhr'[39m, [32m'http'[39m, [32m'fetch'[39m ],
+    allowAbsoluteUrls: [33mtrue[39m,
+    baseURL: [32m'http://localhost:8086/api/v1'[39m,
+    data: [32m'{"email":"admin@techstore.cl","password":"admintech123"}'[39m,
+    env: {},
+    headers: [32m'[object AxiosHeaders]'[39m,
+    maxBodyLength: [33m-1[39m,
+    maxContentLength: [33m-1[39m,
+    method: [32m'post'[39m,
+    timeout: [33m10000[39m,
+    transformRequest: [ [1mnull[22m ],
+    transformResponse: [ [1mnull[22m ],
+    transitional: {
+      clarifyTimeoutError: [33mfalse[39m,
+      forcedJSONParsing: [33mtrue[39m,
+      legacyInterceptorReqResOrdering: [33mtrue[39m,
+      silentJSONParsing: [33mtrue[39m
+    },
+    url: [32m'http://localhost:8085/api/v1/auth/login'[39m,
+    xsrfCookieName: [32m'XSRF-TOKEN'[39m,
+    xsrfHeaderName: [32m'X-XSRF-TOKEN'[39m
+  },
+  data: {
+    message: [32m'Credenciales inválidas'[39m,
+    status: [33m401[39m,
+    timestamp: [33m1777959138912[39m
+  },
+  headers: [32m'[object AxiosHeaders]'[39m,
+  request: [32m'[object XMLHttpRequest]'[39m,
+  status: [33m401[39m,
+  statusText: [32m''[39m
+} 
+    at <unknown> (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:51:21)
+    at async Axios.request (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:5183:20)
+    at async ApiClient.login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:157:26)
+    at async login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:291:30)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:51:21)
+[browser] Error data: {
+  message: [32m'Credenciales inválidas'[39m,
+  status: [33m401[39m,
+  timestamp: [33m1777959138912[39m
+} 
+    at <unknown> (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:52:21)
+    at async Axios.request (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:5183:20)
+    at async ApiClient.login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:157:26)
+    at async login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:291:30)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:52:21)
+[browser] Login failed: { details: [90mundefined[39m, message: [32m'Credenciales inválidas'[39m, status: [33m401[39m } 
+    at login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:318:21)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:318:21)
+[browser] Login error: { details: [90mundefined[39m, message: [32m'Credenciales inválidas'[39m, status: [33m401[39m } 
+    at handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:154:21) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:154:21)
+ GET /login 200 in 99ms (next.js: 12ms, proxy.ts: 14ms, application-code: 73ms)
+ GET /login 200 in 40ms (next.js: 5ms, proxy.ts: 4ms, application-code: 31ms)
+[browser] API Error: AxiosError: Request failed with status code 401
+    at settle (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:3822:16)
+    at XMLHttpRequest.onloadend (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:4367:174) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:50:21)
+[browser] Error response: {
+  config: {
+    adapter: [ [32m'xhr'[39m, [32m'http'[39m, [32m'fetch'[39m ],
+    allowAbsoluteUrls: [33mtrue[39m,
+    baseURL: [32m'http://localhost:8086/api/v1'[39m,
+    data: [32m'{"email":"admin@techstore.cl","password":"admintech123"}'[39m,
+    env: {},
+    headers: [32m'[object AxiosHeaders]'[39m,
+    maxBodyLength: [33m-1[39m,
+    maxContentLength: [33m-1[39m,
+    method: [32m'post'[39m,
+    timeout: [33m10000[39m,
+    transformRequest: [ [1mnull[22m ],
+    transformResponse: [ [1mnull[22m ],
+    transitional: {
+      clarifyTimeoutError: [33mfalse[39m,
+      forcedJSONParsing: [33mtrue[39m,
+      legacyInterceptorReqResOrdering: [33mtrue[39m,
+      silentJSONParsing: [33mtrue[39m
+    },
+    url: [32m'http://localhost:8085/api/v1/auth/login'[39m,
+    xsrfCookieName: [32m'XSRF-TOKEN'[39m,
+    xsrfHeaderName: [32m'X-XSRF-TOKEN'[39m
+  },
+  data: {
+    message: [32m'Credenciales inválidas'[39m,
+    status: [33m401[39m,
+    timestamp: [33m1777959171899[39m
+  },
+  headers: [32m'[object AxiosHeaders]'[39m,
+  request: [32m'[object XMLHttpRequest]'[39m,
+  status: [33m401[39m,
+  statusText: [32m''[39m
+} 
+    at <unknown> (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:51:21)
+    at async Axios.request (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:5183:20)
+    at async ApiClient.login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:157:26)
+    at async login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:291:30)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:51:21)
+[browser] Error data: {
+  message: [32m'Credenciales inválidas'[39m,
+  status: [33m401[39m,
+  timestamp: [33m1777959171899[39m
+} 
+    at <unknown> (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:52:21)
+    at async Axios.request (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:5183:20)
+    at async ApiClient.login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:157:26)
+    at async login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:291:30)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:52:21)
+[browser] Login failed: { details: [90mundefined[39m, message: [32m'Credenciales inválidas'[39m, status: [33m401[39m } 
+    at login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:318:21)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:318:21)
+[browser] Login error: { details: [90mundefined[39m, message: [32m'Credenciales inválidas'[39m, status: [33m401[39m } 
+    at handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:154:21) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:154:21)
+ GET /login 200 in 38ms (next.js: 2ms, proxy.ts: 1815µs, application-code: 34ms)
+ GET /login 200 in 47ms (next.js: 3ms, proxy.ts: 4ms, application-code: 40ms)
+ GET /login 200 in 59ms (next.js: 13ms, proxy.ts: 12ms, application-code: 33ms)
+[browser] API Error: AxiosError: Request failed with status code 401
+    at settle (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:3822:16)
+    at XMLHttpRequest.onloadend (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:4367:174) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:50:21)
+[browser] Error response: {
+  config: {
+    adapter: [ [32m'xhr'[39m, [32m'http'[39m, [32m'fetch'[39m ],
+    allowAbsoluteUrls: [33mtrue[39m,
+    baseURL: [32m'http://localhost:8086/api/v1'[39m,
+    data: [32m'{"email":"admin@techstore.cl","password":"admintech123"}'[39m,
+    env: {},
+    headers: [32m'[object AxiosHeaders]'[39m,
+    maxBodyLength: [33m-1[39m,
+    maxContentLength: [33m-1[39m,
+    method: [32m'post'[39m,
+    timeout: [33m10000[39m,
+    transformRequest: [ [1mnull[22m ],
+    transformResponse: [ [1mnull[22m ],
+    transitional: {
+      clarifyTimeoutError: [33mfalse[39m,
+      forcedJSONParsing: [33mtrue[39m,
+      legacyInterceptorReqResOrdering: [33mtrue[39m,
+      silentJSONParsing: [33mtrue[39m
+    },
+    url: [32m'http://localhost:8085/api/v1/auth/login'[39m,
+    xsrfCookieName: [32m'XSRF-TOKEN'[39m,
+    xsrfHeaderName: [32m'X-XSRF-TOKEN'[39m
+  },
+  data: {
+    message: [32m'Credenciales inválidas'[39m,
+    status: [33m401[39m,
+    timestamp: [33m1777959250322[39m
+  },
+  headers: [32m'[object AxiosHeaders]'[39m,
+  request: [32m'[object XMLHttpRequest]'[39m,
+  status: [33m401[39m,
+  statusText: [32m''[39m
+} 
+    at <unknown> (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:51:21)
+    at async Axios.request (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:5183:20)
+    at async ApiClient.login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:157:26)
+    at async login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:291:30)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:51:21)
+[browser] Error data: {
+  message: [32m'Credenciales inválidas'[39m,
+  status: [33m401[39m,
+  timestamp: [33m1777959250322[39m
+} 
+    at <unknown> (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:52:21)
+    at async Axios.request (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/node_modules_0wxlcly._.js:5183:20)
+    at async ApiClient.login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:157:26)
+    at async login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:291:30)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:52:21)
+[browser] Login failed: { details: [90mundefined[39m, message: [32m'Credenciales inválidas'[39m, status: [33m401[39m } 
+    at login (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:318:21)
+    at async handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:151:13) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/src_0ku3a~_._.js:318:21)
+[browser] Login error: { details: [90mundefined[39m, message: [32m'Credenciales inválidas'[39m, status: [33m401[39m } 
+    at handleSubmit (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:154:21) (file:///Users/alvaro/Desktop/ING. INFORMÁTICA/V SEM - 2026/FULLSTACK III/ENCARGO 2/pymetrack-mvp/frontend/portal-pyme/.next/dev/static/chunks/_0v5an-e._.js:154:21)
+ GET /login 200 in 31ms (next.js: 6ms, proxy.ts: 1879µs, application-code: 23ms)
+ GET /login 200 in 87ms (next.js: 9ms, proxy.ts: 1480µs, application-code: 77ms)
+ GET /login 200 in 13ms (next.js: 4ms, proxy.ts: 3ms, application-code: 6ms)
+[?25h
+npm notice
+npm notice New minor version of npm available! 11.12.1 -> 11.13.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.13.0
+npm notice To update run: npm install -g npm@11.13.0
+npm notice
