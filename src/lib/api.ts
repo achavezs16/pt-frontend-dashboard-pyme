@@ -11,7 +11,7 @@ const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:8
 const MS_PEDIDOS_URL = 'http://localhost:8082/api/v1';
 const MS_PRODUCTOS_URL = 'http://localhost:8081/api/v1';
 const MS_USER_URL = 'http://localhost:8085/api/v1';
-const BFF_URL = 'http://localhost:8084';
+const BFF_URL = 'http://localhost:8084/api/v1';
 
 class ApiClient {
   private client: AxiosInstance;
@@ -90,8 +90,12 @@ class ApiClient {
   }
 
   // Métodos específicos para pedidos - Conectando directamente a ms-pedidos
+  async getPedidosByPyme(pymeId: number): Promise<AxiosResponse<any[]>> {
+    const response = await axios.get(`${MS_PEDIDOS_URL}/pedidos/pyme/${pymeId}`);
+    return response;
+  }
+
   async getPedidos(params?: any): Promise<AxiosResponse<PaginatedResponse<any>>> {
-    // Conectar directamente a ms-pedidos
     const response = await axios.get(`${MS_PEDIDOS_URL}/pedidos`, { params });
     return response;
   }
@@ -169,9 +173,8 @@ class ApiClient {
   }
 
   // Métodos de autenticación - Conectando directamente a ms-user
-  async login(email: string, password: string): Promise<AxiosResponse<any>> {
-    const response = await this.client.post(`${MS_USER_URL}/auth/login`, { email, password });
-    return response;
+  async login(email: string, password: string) {
+    return axios.post(`${MS_USER_URL}/auth/login`, { email, password });
   }
 
   async validateToken(token: string): Promise<AxiosResponse<any>> {
@@ -196,9 +199,8 @@ class ApiClient {
   }
 
   // Métodos del BFF (agregación de datos) - Conectando directamente a BFF
-  async getDashboard(pymeId: number): Promise<AxiosResponse<any>> {
-    const response = await axios.get(`${BFF_URL}/bff/dashboard/${pymeId}`);
-    return response;
+  async getDashboard(pymeId: number) {
+    return axios.get(`http://localhost:8084/api/v1/bff/dashboard/${pymeId}`);
   }
 
   async getEstadisticasPyme(pymeId: number): Promise<AxiosResponse<any>> {

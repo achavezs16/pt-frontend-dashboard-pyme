@@ -1,11 +1,15 @@
 // Tipos TypeScript para la entidad Pedido
 // Basado en la clase Java Pedido del backend
 
-export enum EstadoPedidoPyme {
-  PENDIENTE_CHILE = 'PENDIENTE_CHILE',
-  CONFIRMADO_CHILE = 'CONFIRMADO_CHILE',
-  PREPARACION_CHILE = 'PREPARACION_CHILE',
-  CANCELADO_CHILE = 'CANCELADO_CHILE'
+export enum EstadoPedido {
+  DISPONIBLE = 'DISPONIBLE',
+  ASIGNADO = 'ASIGNADO',
+  ACEPTADO = 'ACEPTADO',
+  RECHAZADO = 'RECHAZADO',
+  PEDIDO_RETIRADO = 'PEDIDO_RETIRADO',
+  EN_CAMINO = 'EN_CAMINO',
+  ENTREGADO = 'ENTREGADO',
+  CANCELADO = 'CANCELADO'
 }
 
 // Usar referencia de tipo para evitar dependencia circular
@@ -21,7 +25,7 @@ export interface Pedido {
   direccionEntregaChile: string;
   comunaEntregaChile: string;
   regionEntregaChile: string;
-  estadoPedidoPyme: EstadoPedidoPyme;
+  estadoPedidoPyme: EstadoPedido;
   subtotal: number; // BigDecimal convertido a number
   costoDespachoChile: number;
   totalPedido: number;
@@ -60,7 +64,7 @@ export interface ActualizarPedidoRequest {
   direccionEntregaChile?: string;
   comunaEntregaChile?: string;
   regionEntregaChile?: string;
-  estadoPedidoPyme?: EstadoPedidoPyme;
+  estadoPedidoPyme?: EstadoPedido;
   subtotal?: number;
   costoDespachoChile?: number;
   totalPedido?: number;

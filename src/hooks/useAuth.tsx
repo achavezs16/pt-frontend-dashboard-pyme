@@ -94,7 +94,8 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       setUser(userInfo);
       localStorage.setItem('token', authToken);
       localStorage.setItem('userInfo', JSON.stringify(userInfo)); // Cambiado de pymeInfo a userInfo
-      
+      document.cookie = `pyme_token=${authToken}; path=/; max-age=86400; SameSite=Lax`;
+
       console.log('🔐 LOGIN: Estado guardado, isAuthenticated debería ser true');
       
       if (refreshToken) {
@@ -129,8 +130,9 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const logout = () => {
     clearAuth();
     if (typeof window !== 'undefined') {
-      window.location.href = '/login';
+      window.location.href = '/';
     }
+    document.cookie = 'pyme_token=; path=/; max-age=0; SameSite=Lax';
   };
 
   const clearAuth = () => {

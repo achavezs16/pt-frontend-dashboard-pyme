@@ -6,7 +6,7 @@ import React, { useState, useEffect } from 'react';
 import Layout from '@/components/layout/Layout';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
-import { Pedido, EstadoPedidoPyme } from '@/types';
+import { Pedido, EstadoPedido } from '@/types';
 import apiClient from '@/lib/api';
 import Link from 'next/link';
 
@@ -34,9 +34,18 @@ export default function PedidosPage() {
       params.append('page', filtros.page.toString());
       params.append('size', filtros.size.toString());
 
-      console.log('📡 Haciendo petición a /pedidos/pyme/1');
-      const response = await apiClient.get('/pedidos/pyme/1');
-      console.log('✅ Respuesta recibida:', response.data);
+      const pymeInfo = localStorage.getItem('pymeInfo');
+      const parsedPymeInfo = pymeInfo ? JSON.parse(pymeInfo) : null;
+
+      const pymeId =
+        parsedPymeInfo?.pymeId ||
+        parsedPymeInfo?.id ||
+        parsedPymeInfo?.userInfo?.pymeId ||
+        1;
+
+      console.log(`📡 Haciendo petición a pedidos de PYME ${pymeId}`);
+
+      const response = await apiClient.getPedidosByPyme(pymeId);
       
       const pedidosData = response.data as Pedido[] || [];
       console.log('📦 Pedidos procesados:', pedidosData.length);
@@ -44,44 +53,6 @@ export default function PedidosPage() {
     } catch (err: any) {
       console.error('❌ Error al cargar pedidos:', err);
       setError(err.message || 'Error al cargar pedidos');
-      // Usar datos mock mientras la API no está disponible
-      setPedidos([
-        {
-          id: 1,
-          pyme: { id: 1, nombrePyme: 'Mi PYME', rutPyme: '12345678-9', emailContactoPyme: 'contacto@pyme.cl', activo: true, creadoEn: '2024-04-23T00:00:00' },
-          numeroOrdenPyme: 'ORD-001',
-          nombreCliente: 'Juan Pérez',
-          emailCliente: 'juan.perez@email.com',
-          telefonoCliente: '+56 9 1234 5678',
-          direccionEntregaChile: 'Av. Principal 123, Santiago',
-          comunaEntregaChile: 'Santiago',
-          regionEntregaChile: 'Región Metropolitana',
-          estadoPedidoPyme: EstadoPedidoPyme.PENDIENTE_CHILE,
-          subtotal: 50000,
-          costoDespachoChile: 5000,
-          totalPedido: 55000,
-          etiquetaDespachoPyme: 'ETQ-001',
-          notasPedido: 'Entregar después de las 18:00',
-          creadoEn: '2024-04-23T10:30:00'
-        },
-        {
-          id: 2,
-          pyme: { id: 1, nombrePyme: 'Mi PYME', rutPyme: '12345678-9', emailContactoPyme: 'contacto@pyme.cl', activo: true, creadoEn: '2024-04-23T00:00:00' },
-          numeroOrdenPyme: 'ORD-002',
-          nombreCliente: 'María González',
-          emailCliente: 'maria.gonzalez@email.com',
-          telefonoCliente: '+56 9 8765 4321',
-          direccionEntregaChile: 'Calle Secundaria 456, Providencia',
-          comunaEntregaChile: 'Providencia',
-          regionEntregaChile: 'Región Metropolitana',
-          estadoPedidoPyme: EstadoPedidoPyme.CONFIRMADO_CHILE,
-          subtotal: 75000,
-          costoDespachoChile: 6000,
-          totalPedido: 81000,
-          etiquetaDespachoPyme: 'ETQ-002',
-          creadoEn: '2024-04-23T09:15:00'
-        }
-      ]);
     } finally {
       console.log('🏁 Finalizando carga de pedidos');
       setLoading(false);
@@ -104,15 +75,15 @@ export default function PedidosPage() {
   };
 
   // Obtener color según estado
-  const getEstadoColor = (estado: EstadoPedidoPyme) => {
+  const getEstadoColor = (estado: EstadoPedido) => {
     switch (estado) {
-      case EstadoPedidoPyme.PENDIENTE_CHILE:
+      case EstadoPedido.ASIGNADO:
         return 'bg-yellow-100 text-yellow-800';
-      case EstadoPedidoPyme.CONFIRMADO_CHILE:
+      case EstadoPedido.ACEPTADO:
         return 'bg-blue-100 text-blue-800';
-      case EstadoPedidoPyme.PREPARACION_CHILE:
+      case EstadoPedido.EN_CAMINO:
         return 'bg-purple-100 text-purple-800';
-      case EstadoPedidoPyme.CANCELADO_CHILE:
+      case EstadoPedido.CANCELADO:
         return 'bg-red-100 text-red-800';
       default:
         return 'bg-gray-100 text-gray-800';
@@ -163,10 +134,10 @@ export default function PedidosPage() {
                 onChange={(e) => handleFiltroChange('estado', e.target.value)}
               >
                 <option value="">Todos los estados</option>
-                <option value={EstadoPedidoPyme.PENDIENTE_CHILE}>Pendiente</option>
-                <option value={EstadoPedidoPyme.CONFIRMADO_CHILE}>Confirmado</option>
-                <option value={EstadoPedidoPyme.PREPARACION_CHILE}>En Preparación</option>
-                <option value={EstadoPedidoPyme.CANCELADO_CHILE}>Cancelado</option>
+                <option value={EstadoPedido.ASIGNADO}>Asignado</option>
+                <option value={EstadoPedido.EN_CAMINO}>En Camino</option>
+                <option value={EstadoPedido.ENTREGADO}>Entregado</option>
+                <option value={EstadoPedido.CANCELADO}>Cancelado</option>
               </select>
             </div>
             <div className="flex items-end space-x-2">
