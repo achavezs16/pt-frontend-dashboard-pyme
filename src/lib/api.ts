@@ -8,10 +8,10 @@ import { ApiResponse, PaginatedResponse, ApiError } from '@/types';
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:8086/api/v1';
 
 // URLs base para cada microservicio
-const MS_PEDIDOS_URL = 'http://localhost:8082/api/v1';
-const MS_PRODUCTOS_URL = 'http://localhost:8081/api/v1';
-const MS_USER_URL = 'http://localhost:8085/api/v1';
-const BFF_URL = 'http://localhost:8084/api/v1';
+const MS_PEDIDOS_URL = API_BASE_URL;
+const MS_PRODUCTOS_URL = API_BASE_URL;
+const MS_USER_URL = API_BASE_URL;
+const BFF_URL = API_BASE_URL;
 
 class ApiClient {
   private client: AxiosInstance;
@@ -200,7 +200,7 @@ class ApiClient {
 
   // Métodos del BFF (agregación de datos) - Conectando directamente a BFF
   async getDashboard(pymeId: number) {
-    return axios.get(`http://localhost:8084/api/v1/bff/dashboard/${pymeId}`);
+    return axios.get(`${BFF_URL}/bff/dashboard/${pymeId}`);
   }
 
   async getEstadisticasPyme(pymeId: number): Promise<AxiosResponse<any>> {
