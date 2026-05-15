@@ -2,13 +2,13 @@
 
 'use client';
 
-import React, { useState, useEffect } from 'react';
 import Layout from '@/components/layout/Layout';
-import { Producto, CategoriaProducto } from '@/types';
 import ProductoCard from '@/components/productos/ProductoCard';
-import Button from '@/components/ui/Button';
-import Input from '@/components/ui/Input';
+import Button from '@/components/ui/pymetrack-ui-lib/Button';
+import Input from '@/components/ui/pymetrack-ui-lib/Input';
 import { apiClient } from '@/lib/api';
+import { CategoriaProducto, Producto } from '@/types';
+import React, { useEffect, useState } from 'react';
 
 const ProductosPage: React.FC = () => {
   const [productos, setProductos] = useState<Producto[]>([]);

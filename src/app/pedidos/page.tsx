@@ -2,13 +2,13 @@
 
 'use client';
 
-import React, { useState, useEffect } from 'react';
 import Layout from '@/components/layout/Layout';
-import Button from '@/components/ui/Button';
-import Input from '@/components/ui/Input';
-import { Pedido, EstadoPedido } from '@/types';
+import Button from '@/components/ui/pymetrack-ui-lib/Button';
+import Input from '@/components/ui/pymetrack-ui-lib/Input';
 import apiClient from '@/lib/api';
+import { EstadoPedido, Pedido } from '@/types';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 export default function PedidosPage() {
   const [pedidos, setPedidos] = useState<Pedido[]>([]);

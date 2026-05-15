@@ -2,13 +2,12 @@
 
 'use client';
 
-import React, { useState } from 'react';
 import Layout from '@/components/layout/Layout';
-import Button from '@/components/ui/Button';
-import Input from '@/components/ui/Input';
+import Button from '@/components/ui/pymetrack-ui-lib/Button';
+import Input from '@/components/ui/pymetrack-ui-lib/Input';
 import { CrearPedidoRequest, DetallePedidoRequest } from '@/types';
-import apiClient from '@/lib/api';
 import { useRouter } from 'next/navigation';
+import React, { useState } from 'react';
 
 export default function CrearPedidoPage() {
   const router = useRouter();
