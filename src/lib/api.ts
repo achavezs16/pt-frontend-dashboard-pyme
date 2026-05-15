@@ -54,8 +54,8 @@ class ApiClient {
         
         // Manejar 401 Unauthorized - token expirado
         if (error.response?.status === 401) {
-          localStorage.removeItem('token');
-          localStorage.removeItem('pymeInfo');
+          localStorage.removeItem('userInfo');
+          localStorage.removeItem('refreshToken');
           // Redirigir a login
           if (typeof window !== 'undefined') {
             window.location.href = '/login';
