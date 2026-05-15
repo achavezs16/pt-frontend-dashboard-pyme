@@ -259,7 +259,7 @@ export default function CrearPedidoPage() {
                   value={formData.nombreCliente}
                   onChange={handleChange}
                   required
-                  className="border rounded-lg px-4 py-3"
+                  className="border rounded-lg px-4 py-3 text-gray-900 placeholder-gray-400"
                 />
 
                 <input
@@ -269,7 +269,7 @@ export default function CrearPedidoPage() {
                   value={formData.emailCliente}
                   onChange={handleChange}
                   required
-                  className="border rounded-lg px-4 py-3"
+                  className="border rounded-lg px-4 py-3 text-gray-900 placeholder-gray-400"
                 />
 
                 <input
@@ -279,7 +279,7 @@ export default function CrearPedidoPage() {
                   value={formData.telefonoCliente}
                   onChange={handleChange}
                   required
-                  className="border rounded-lg px-4 py-3 md:col-span-2"
+                  className="border rounded-lg px-4 py-3 md:col-span-2 text-gray-900 placeholder-gray-400"
                 />
               </div>
             </section>
@@ -297,7 +297,7 @@ export default function CrearPedidoPage() {
                   value={formData.direccionEntregaChile}
                   onChange={handleChange}
                   required
-                  className="border rounded-lg px-4 py-3"
+                  className="border rounded-lg px-4 py-3 text-gray-900 placeholder-gray-400"
                 />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -308,7 +308,7 @@ export default function CrearPedidoPage() {
                     value={formData.comunaEntregaChile}
                     onChange={handleChange}
                     required
-                    className="border rounded-lg px-4 py-3"
+                    className="border rounded-lg px-4 py-3 text-gray-900 placeholder-gray-400"
                   />
 
                   <input
@@ -318,7 +318,7 @@ export default function CrearPedidoPage() {
                     value={formData.regionEntregaChile}
                     onChange={handleChange}
                     required
-                    className="border rounded-lg px-4 py-3"
+                    className="border rounded-lg px-4 py-3 text-gray-900 placeholder-gray-400"
                   />
                 </div>
               </div>
@@ -340,7 +340,8 @@ export default function CrearPedidoPage() {
                   placeholder="Buscar producto, SKU o categoría..."
                   value={busqueda}
                   onChange={(e) => setBusqueda(e.target.value)}
-                  className="border rounded-lg px-4 py-3 w-full md:w-80"
+                  className="border rounded-lg px-4 py-3 w-full md:w-80 text-gray-900 placeholder-gray-400"
+                  
                 />
               </div>
 
@@ -441,7 +442,7 @@ export default function CrearPedidoPage() {
                           onChange={(e) =>
                             cambiarCantidad(item.producto.id, Number(e.target.value))
                           }
-                          className="w-20 border rounded-lg px-3 py-2 text-center"
+                          className="w-20 border rounded-lg px-3 py-2 text-center text-gray-900 placeholder-gray-400"
                         />
                       </div>
 
@@ -469,7 +470,7 @@ export default function CrearPedidoPage() {
                     value={formData.costoDespachoChile}
                     onChange={handleChange}
                     min={0}
-                    className="w-full border rounded-lg px-4 py-3"
+                    className="w-full border rounded-lg px-4 py-3 text-gray-900 placeholder-gray-400"
                   />
                 </div>
 
@@ -487,7 +488,7 @@ export default function CrearPedidoPage() {
                 value={formData.notasPedido}
                 onChange={handleChange}
                 rows={3}
-                className="w-full border rounded-lg px-4 py-3 mt-5"
+                className="w-full border rounded-lg px-4 py-3 mt-5 text-gray-900 placeholder-gray-400"
               />
 
               <div className="flex gap-3 mt-5">

@@ -144,7 +144,7 @@ export default function HomePage() {
           </Link>
 
           <Link
-            href="/catalogo"
+            href="/productos"
             className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm transition hover:shadow-md"
           >
             <p className="text-2xl">🛒</p>
