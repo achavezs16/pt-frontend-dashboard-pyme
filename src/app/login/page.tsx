@@ -83,8 +83,8 @@ export default function LoginPage() {
                 autoComplete="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                placeholder="admin@techstore.cl"
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-gray-900 placeholder-gray-400 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                placeholder="pyme1@demo.cl"
               />
             </div>
 
@@ -100,7 +100,7 @@ export default function LoginPage() {
                 autoComplete="current-password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm text-gray-900 placeholder-gray-400 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 placeholder="•••••••••"
               />
             </div>
@@ -131,11 +131,8 @@ export default function LoginPage() {
             📋 Credenciales de Demo:
           </p>
           <p className="text-xs text-blue-700">
-            <strong>Email:</strong> contacto@techstore.cl<br />
-            <strong>Contraseña:</strong> Temp123!@#
-          </p>
-          <p className="text-xs text-blue-600 mt-2">
-            🔐 Autenticación a través de API Gateway (puerto 8086)
+            <strong>Email:</strong> pyme1@demo.cl<br />
+            <strong>Contraseña:</strong> 12345678
           </p>
         </div>
 

@@ -1,14 +1,35 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Layout from '@/components/layout/Layout';
 import { apiClient } from '@/lib/api';
 
-export default function CrearPedidoPage() {
+type ProductoCatalogo = {
+  id: number;
+  pymeId: number;
+  codigoSKU: string;
+  nombreProducto: string;
+  descripcionProducto?: string;
+  precioVentaChile: number;
+  categoriaProducto?: string;
+  activo: boolean;
+};
 
+type ProductoSeleccionado = {
+  producto: ProductoCatalogo;
+  cantidad: number;
+};
+
+export default function CrearPedidoPage() {
   const router = useRouter();
 
   const [loading, setLoading] = useState(false);
+  const [loadingProductos, setLoadingProductos] = useState(true);
+  const [productos, setProductos] = useState<ProductoCatalogo[]>([]);
+  const [productosSeleccionados, setProductosSeleccionados] = useState<ProductoSeleccionado[]>([]);
+  const [busqueda, setBusqueda] = useState('');
+  const [error, setError] = useState<string | null>(null);
 
   const [formData, setFormData] = useState({
     nombreCliente: '',
@@ -17,15 +38,79 @@ export default function CrearPedidoPage() {
     direccionEntregaChile: '',
     comunaEntregaChile: '',
     regionEntregaChile: '',
-    subtotal: '',
-    costoDespachoChile: '',
+    costoDespachoChile: '0',
     notasPedido: '',
   });
+
+  const obtenerPymeId = () => {
+    try {
+      const pymeInfo = localStorage.getItem('pymeInfo');
+      const parsed = pymeInfo ? JSON.parse(pymeInfo) : null;
+
+      return (
+        parsed?.pymeId ||
+        parsed?.id ||
+        parsed?.userInfo?.pymeId ||
+        1
+      );
+    } catch {
+      return 1;
+    }
+  };
+
+  useEffect(() => {
+    const cargarProductos = async () => {
+      try {
+        setLoadingProductos(true);
+        setError(null);
+
+        const pymeId = obtenerPymeId();
+        const response = await apiClient.get<ProductoCatalogo[]>(`/productos/pyme/${pymeId}`);
+
+        const productosActivos = response.data.filter((producto) => producto.activo);
+        setProductos(productosActivos);
+      } catch (err) {
+        console.error('❌ Error cargando productos:', err);
+        setError('No fue posible cargar el catálogo de productos.');
+      } finally {
+        setLoadingProductos(false);
+      }
+    };
+
+    cargarProductos();
+  }, []);
+
+  const productosFiltrados = useMemo(() => {
+    const texto = busqueda.toLowerCase().trim();
+
+    if (!texto) return productos;
+
+    return productos.filter((producto) =>
+      producto.nombreProducto.toLowerCase().includes(texto) ||
+      producto.codigoSKU.toLowerCase().includes(texto) ||
+      producto.categoriaProducto?.toLowerCase().includes(texto)
+    );
+  }, [productos, busqueda]);
+
+  const subtotal = useMemo(() => {
+    return productosSeleccionados.reduce((total, item) => {
+      return total + item.producto.precioVentaChile * item.cantidad;
+    }, 0);
+  }, [productosSeleccionados]);
+
+  const costoDespacho = Number(formData.costoDespachoChile || 0);
+  const totalPedido = subtotal + costoDespacho;
+
+  const formatCurrency = (value: number) => {
+    return value.toLocaleString('es-CL', {
+      style: 'currency',
+      currency: 'CLP',
+    });
+  };
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-
     const { name, value } = e.target;
 
     setFormData((prev) => ({
@@ -34,290 +119,399 @@ export default function CrearPedidoPage() {
     }));
   };
 
-  const handleSubmit = async (
-    e: React.FormEvent
-  ) => {
+  const agregarProducto = (producto: ProductoCatalogo) => {
+    setProductosSeleccionados((prev) => {
+      const existe = prev.find((item) => item.producto.id === producto.id);
 
+      if (existe) {
+        return prev.map((item) =>
+          item.producto.id === producto.id
+            ? { ...item, cantidad: item.cantidad + 1 }
+            : item
+        );
+      }
+
+      return [...prev, { producto, cantidad: 1 }];
+    });
+  };
+
+  const cambiarCantidad = (productoId: number, cantidad: number) => {
+    if (cantidad <= 0) {
+      quitarProducto(productoId);
+      return;
+    }
+
+    setProductosSeleccionados((prev) =>
+      prev.map((item) =>
+        item.producto.id === productoId
+          ? { ...item, cantidad }
+          : item
+      )
+    );
+  };
+
+  const quitarProducto = (productoId: number) => {
+    setProductosSeleccionados((prev) =>
+      prev.filter((item) => item.producto.id !== productoId)
+    );
+  };
+
+  const generarNumeroOrden = () => {
+    const fecha = new Date();
+    const yyyy = fecha.getFullYear();
+    const mm = String(fecha.getMonth() + 1).padStart(2, '0');
+    const dd = String(fecha.getDate()).padStart(2, '0');
+    const hh = String(fecha.getHours()).padStart(2, '0');
+    const min = String(fecha.getMinutes()).padStart(2, '0');
+    const random = Math.floor(1000 + Math.random() * 9000);
+
+    return `ORD-${yyyy}${mm}${dd}${hh}${min}-${random}`;
+  };
+
+  const generarEtiqueta = () => {
+    const random = Math.floor(10000 + Math.random() * 90000);
+    return `PYM-${Date.now()}-${random}`;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    try {
+    if (productosSeleccionados.length === 0) {
+      alert('Debes seleccionar al menos un producto.');
+      return;
+    }
 
+    try {
       setLoading(true);
 
-      const pymeInfo = localStorage.getItem('pymeInfo');
+      const pymeId = obtenerPymeId();
 
-      const parsedPymeInfo =
-        pymeInfo ? JSON.parse(pymeInfo) : null;
-
-      const pymeId =
-        parsedPymeInfo?.pymeId ||
-        parsedPymeInfo?.id ||
-        parsedPymeInfo?.userInfo?.pymeId ||
-        1;
-
-      const subtotal =
-        Number(formData.subtotal);
-
-      const costoDespacho =
-        Number(formData.costoDespachoChile || 0);
+      const resumenProductos = productosSeleccionados
+        .map((item) => `${item.producto.nombreProducto} x${item.cantidad}`)
+        .join(', ');
 
       const pedidoData = {
-
         idPyme: pymeId,
-
-        numeroOrdenPyme:
-          `ORD-${Date.now()}`,
-
-        nombreCliente:
-          formData.nombreCliente,
-
-        emailCliente:
-          formData.emailCliente,
-
-        telefonoCliente:
-          formData.telefonoCliente,
-
-        direccionEntregaChile:
-          formData.direccionEntregaChile,
-
-        comunaEntregaChile:
-          formData.comunaEntregaChile,
-
-        regionEntregaChile:
-          formData.regionEntregaChile,
-
-        estadoPedidoPyme:
-          'DISPONIBLE',
-
+        numeroOrdenPyme: generarNumeroOrden(),
+        nombreCliente: formData.nombreCliente,
+        emailCliente: formData.emailCliente,
+        telefonoCliente: formData.telefonoCliente,
+        direccionEntregaChile: formData.direccionEntregaChile,
+        comunaEntregaChile: formData.comunaEntregaChile,
+        regionEntregaChile: formData.regionEntregaChile,
+        estadoPedidoPyme: 'DISPONIBLE',
         subtotal,
-
-        costoDespachoChile:
-          costoDespacho,
-
-        totalPedido:
-          subtotal + costoDespacho,
-
-        etiquetaDespachoPyme:
-          `PYM-${Date.now()}`,
-
-        notasPedido:
-          formData.notasPedido || '',
+        costoDespachoChile: costoDespacho,
+        totalPedido,
+        etiquetaDespachoPyme: generarEtiqueta(),
+        notasPedido: [
+          formData.notasPedido,
+          `Productos: ${resumenProductos}`,
+        ]
+          .filter(Boolean)
+          .join(' | '),
       };
 
-      console.log(
-        '📦 Creando pedido:',
-        pedidoData
-      );
+      console.log('📦 Creando pedido:', pedidoData);
 
-      await apiClient.post(
-        '/pedidos',
-        pedidoData
-      );
+      await apiClient.post('/pedidos', pedidoData);
 
       alert('✅ Pedido creado exitosamente');
-
       router.push('/pedidos');
-
     } catch (err: any) {
-
-      console.error(
-        '❌ Error al crear pedido:',
-        err
-      );
-
-      alert(
-        err?.message ||
-        'Error al crear pedido'
-      );
-
+      console.error('❌ Error al crear pedido:', err);
+      alert(err?.message || 'Error al crear pedido');
     } finally {
-
       setLoading(false);
     }
   };
 
   return (
+    <Layout>
+      <div className="space-y-6">
+        <div>
+          <h1 className="text-2xl font-bold text-gray-900">
+            Crear Pedido
+          </h1>
+          <p className="text-gray-600 mt-1">
+            Selecciona productos del catálogo y registra los datos de entrega.
+          </p>
+        </div>
 
-    <div className="max-w-3xl mx-auto p-6">
+        {error && (
+          <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
+            {error}
+          </div>
+        )}
 
-      <div className="mb-8">
+        <form onSubmit={handleSubmit} className="grid grid-cols-1 xl:grid-cols-3 gap-6">
+          <div className="xl:col-span-2 space-y-6">
+            <section className="bg-white rounded-xl border border-gray-200 shadow-sm p-6">
+              <h2 className="text-lg font-semibold text-gray-900 mb-4">
+                Datos del cliente
+              </h2>
 
-        <h1 className="text-3xl font-bold text-gray-900">
-          Crear Pedido
-        </h1>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <input
+                  type="text"
+                  name="nombreCliente"
+                  placeholder="Nombre del cliente"
+                  value={formData.nombreCliente}
+                  onChange={handleChange}
+                  required
+                  className="border rounded-lg px-4 py-3 text-gray-900 placeholder-gray-400"
+                />
 
-        <p className="text-gray-600 mt-2">
-          Registra un nuevo pedido para despacho.
-        </p>
+                <input
+                  type="email"
+                  name="emailCliente"
+                  placeholder="Correo del cliente"
+                  value={formData.emailCliente}
+                  onChange={handleChange}
+                  required
+                  className="border rounded-lg px-4 py-3 text-gray-900 placeholder-gray-400"
+                />
 
+                <input
+                  type="text"
+                  name="telefonoCliente"
+                  placeholder="Teléfono"
+                  value={formData.telefonoCliente}
+                  onChange={handleChange}
+                  required
+                  className="border rounded-lg px-4 py-3 md:col-span-2 text-gray-900 placeholder-gray-400"
+                />
+              </div>
+            </section>
+
+            <section className="bg-white rounded-xl border border-gray-200 shadow-sm p-6">
+              <h2 className="text-lg font-semibold text-gray-900 mb-4">
+                Dirección de entrega
+              </h2>
+
+              <div className="grid grid-cols-1 gap-4">
+                <input
+                  type="text"
+                  name="direccionEntregaChile"
+                  placeholder="Dirección"
+                  value={formData.direccionEntregaChile}
+                  onChange={handleChange}
+                  required
+                  className="border rounded-lg px-4 py-3 text-gray-900 placeholder-gray-400"
+                />
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <input
+                    type="text"
+                    name="comunaEntregaChile"
+                    placeholder="Comuna"
+                    value={formData.comunaEntregaChile}
+                    onChange={handleChange}
+                    required
+                    className="border rounded-lg px-4 py-3 text-gray-900 placeholder-gray-400"
+                  />
+
+                  <input
+                    type="text"
+                    name="regionEntregaChile"
+                    placeholder="Región"
+                    value={formData.regionEntregaChile}
+                    onChange={handleChange}
+                    required
+                    className="border rounded-lg px-4 py-3 text-gray-900 placeholder-gray-400"
+                  />
+                </div>
+              </div>
+            </section>
+
+            <section className="bg-white rounded-xl border border-gray-200 shadow-sm p-6">
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
+                <div>
+                  <h2 className="text-lg font-semibold text-gray-900">
+                    Catálogo de productos
+                  </h2>
+                  <p className="text-sm text-gray-500">
+                    Agrega productos al pedido desde el catálogo de la PYME.
+                  </p>
+                </div>
+
+                <input
+                  type="text"
+                  placeholder="Buscar producto, SKU o categoría..."
+                  value={busqueda}
+                  onChange={(e) => setBusqueda(e.target.value)}
+                  className="border rounded-lg px-4 py-3 w-full md:w-80 text-gray-900 placeholder-gray-400"
+                  
+                />
+              </div>
+
+              {loadingProductos ? (
+                <div className="py-10 text-center text-gray-500">
+                  Cargando productos...
+                </div>
+              ) : productosFiltrados.length === 0 ? (
+                <div className="py-10 text-center text-gray-500">
+                  No se encontraron productos.
+                </div>
+              ) : (
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 max-h-[560px] overflow-y-auto pr-1">
+                  {productosFiltrados.map((producto) => (
+                    <div
+                      key={producto.id}
+                      className="border border-gray-200 rounded-xl p-4 hover:border-blue-300 hover:shadow-sm transition bg-white"
+                    >
+                      <div className="flex justify-between gap-4">
+                        <div>
+                          <h3 className="font-semibold text-gray-900">
+                            {producto.nombreProducto}
+                          </h3>
+                          <p className="text-xs text-gray-500 mt-1">
+                            SKU: {producto.codigoSKU} · {producto.categoriaProducto}
+                          </p>
+                          <p className="text-sm text-gray-600 mt-2 line-clamp-2">
+                            {producto.descripcionProducto || 'Sin descripción'}
+                          </p>
+                        </div>
+
+                        <div className="text-right shrink-0">
+                          <p className="font-bold text-blue-700">
+                            {formatCurrency(producto.precioVentaChile)}
+                          </p>
+                        </div>
+                      </div>
+
+                      <button
+                        type="button"
+                        onClick={() => agregarProducto(producto)}
+                        className="mt-4 w-full bg-blue-600 text-white rounded-lg py-2 hover:bg-blue-700 transition"
+                      >
+                        Agregar al pedido
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </section>
+          </div>
+
+          <aside className="space-y-6">
+            <section className="bg-white rounded-xl border border-gray-200 shadow-sm p-6 sticky top-6">
+              <h2 className="text-lg font-semibold text-gray-900 mb-4">
+                Resumen del pedido
+              </h2>
+
+              {productosSeleccionados.length === 0 ? (
+                <div className="text-center py-8 text-gray-500 border border-dashed rounded-lg">
+                  Aún no has seleccionado productos.
+                </div>
+              ) : (
+                <div className="space-y-3">
+                  {productosSeleccionados.map((item) => (
+                    <div
+                      key={item.producto.id}
+                      className="border rounded-lg p-3"
+                    >
+                      <div className="flex justify-between gap-3">
+                        <div>
+                          <p className="font-medium text-gray-900">
+                            {item.producto.nombreProducto}
+                          </p>
+                          <p className="text-sm text-gray-500">
+                            {formatCurrency(item.producto.precioVentaChile)}
+                          </p>
+                        </div>
+
+                        <button
+                          type="button"
+                          onClick={() => quitarProducto(item.producto.id)}
+                          className="text-red-600 text-sm hover:underline"
+                        >
+                          Quitar
+                        </button>
+                      </div>
+
+                      <div className="flex items-center justify-between mt-3">
+                        <label className="text-sm text-gray-600">
+                          Cantidad
+                        </label>
+
+                        <input
+                          type="number"
+                          min={1}
+                          value={item.cantidad}
+                          onChange={(e) =>
+                            cambiarCantidad(item.producto.id, Number(e.target.value))
+                          }
+                          className="w-20 border rounded-lg px-3 py-2 text-center text-gray-900 placeholder-gray-400"
+                        />
+                      </div>
+
+                      <p className="text-right font-semibold mt-2">
+                        {formatCurrency(item.producto.precioVentaChile * item.cantidad)}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              <div className="border-t mt-5 pt-5 space-y-3">
+                <div className="flex justify-between text-sm">
+                  <span className="text-gray-600">Subtotal</span>
+                  <span className="font-semibold">{formatCurrency(subtotal)}</span>
+                </div>
+
+                <div>
+                  <label className="block text-sm text-gray-600 mb-1">
+                    Costo despacho
+                  </label>
+                  <input
+                    type="number"
+                    name="costoDespachoChile"
+                    value={formData.costoDespachoChile}
+                    onChange={handleChange}
+                    min={0}
+                    className="w-full border rounded-lg px-4 py-3 text-gray-900 placeholder-gray-400"
+                  />
+                </div>
+
+                <div className="flex justify-between text-lg border-t pt-3">
+                  <span className="font-semibold text-gray-900">Total</span>
+                  <span className="font-bold text-blue-700">
+                    {formatCurrency(totalPedido)}
+                  </span>
+                </div>
+              </div>
+
+              <textarea
+                name="notasPedido"
+                placeholder="Notas adicionales"
+                value={formData.notasPedido}
+                onChange={handleChange}
+                rows={3}
+                className="w-full border rounded-lg px-4 py-3 mt-5 text-gray-900 placeholder-gray-400"
+              />
+
+              <div className="flex gap-3 mt-5">
+                <button
+                  type="button"
+                  onClick={() => router.back()}
+                  className="flex-1 px-4 py-3 border rounded-lg hover:bg-gray-50"
+                >
+                  Cancelar
+                </button>
+
+                <button
+                  type="submit"
+                  disabled={loading || productosSeleccionados.length === 0}
+                  className="flex-1 px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50"
+                >
+                  {loading ? 'Creando...' : 'Crear pedido'}
+                </button>
+              </div>
+            </section>
+          </aside>
+        </form>
       </div>
-
-      <form
-        onSubmit={handleSubmit}
-        className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 space-y-6"
-      >
-
-        {/* Cliente */}
-        <div>
-
-          <h2 className="text-xl font-semibold mb-4">
-            Datos del Cliente
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-
-            <input
-              type="text"
-              name="nombreCliente"
-              placeholder="Nombre Cliente"
-              value={formData.nombreCliente}
-              onChange={handleChange}
-              required
-              className="border rounded-lg px-4 py-3"
-            />
-
-            <input
-              type="email"
-              name="emailCliente"
-              placeholder="Correo Cliente"
-              value={formData.emailCliente}
-              onChange={handleChange}
-              required
-              className="border rounded-lg px-4 py-3"
-            />
-
-            <input
-              type="text"
-              name="telefonoCliente"
-              placeholder="Teléfono"
-              value={formData.telefonoCliente}
-              onChange={handleChange}
-              required
-              className="border rounded-lg px-4 py-3"
-            />
-
-          </div>
-
-        </div>
-
-        {/* Dirección */}
-        <div>
-
-          <h2 className="text-xl font-semibold mb-4">
-            Dirección de Entrega
-          </h2>
-
-          <div className="grid grid-cols-1 gap-4">
-
-            <input
-              type="text"
-              name="direccionEntregaChile"
-              placeholder="Dirección"
-              value={formData.direccionEntregaChile}
-              onChange={handleChange}
-              required
-              className="border rounded-lg px-4 py-3"
-            />
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-
-              <input
-                type="text"
-                name="comunaEntregaChile"
-                placeholder="Comuna"
-                value={formData.comunaEntregaChile}
-                onChange={handleChange}
-                required
-                className="border rounded-lg px-4 py-3"
-              />
-
-              <input
-                type="text"
-                name="regionEntregaChile"
-                placeholder="Región"
-                value={formData.regionEntregaChile}
-                onChange={handleChange}
-                required
-                className="border rounded-lg px-4 py-3"
-              />
-
-            </div>
-
-          </div>
-
-        </div>
-
-        {/* Totales */}
-        <div>
-
-          <h2 className="text-xl font-semibold mb-4">
-            Totales
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-
-            <input
-              type="number"
-              name="subtotal"
-              placeholder="Subtotal"
-              value={formData.subtotal}
-              onChange={handleChange}
-              required
-              className="border rounded-lg px-4 py-3"
-            />
-
-            <input
-              type="number"
-              name="costoDespachoChile"
-              placeholder="Costo despacho"
-              value={formData.costoDespachoChile}
-              onChange={handleChange}
-              className="border rounded-lg px-4 py-3"
-            />
-
-          </div>
-
-        </div>
-
-        {/* Notas */}
-        <div>
-
-          <textarea
-            name="notasPedido"
-            placeholder="Notas adicionales"
-            value={formData.notasPedido}
-            onChange={handleChange}
-            rows={4}
-            className="w-full border rounded-lg px-4 py-3"
-          />
-
-        </div>
-
-        {/* Botones */}
-        <div className="flex justify-end gap-4 pt-4">
-
-          <button
-            type="button"
-            onClick={() => router.back()}
-            className="px-6 py-3 border rounded-lg hover:bg-gray-50"
-          >
-            Cancelar
-          </button>
-
-          <button
-            type="submit"
-            disabled={loading}
-            className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50"
-          >
-            {loading
-              ? 'Creando pedido...'
-              : 'Crear Pedido'}
-          </button>
-
-        </div>
-
-      </form>
-
-    </div>
+    </Layout>
   );
 }

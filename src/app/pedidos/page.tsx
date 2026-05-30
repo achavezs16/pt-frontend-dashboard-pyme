@@ -14,6 +14,8 @@ export default function PedidosPage() {
   const [pedidos, setPedidos] = useState<Pedido[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [paginaActual, setPaginaActual] = useState(1);
+  const pedidosPorPagina = 6;
   const [filtros, setFiltros] = useState({
     estado: '',
     cliente: '',
@@ -63,10 +65,30 @@ export default function PedidosPage() {
     cargarPedidos();
   }, [filtros.page, filtros.size]); // Solo recargar cuando cambia la paginación
 
+  useEffect(() => {
+    setPaginaActual(1);
+  }, [filtros.cliente, filtros.estado]);
+
   // Manejar cambios en filtros (sin recargar automáticamente)
   const handleFiltroChange = (campo: string, valor: string) => {
     setFiltros(prev => ({ ...prev, [campo]: valor }));
   };
+
+  const pedidosFiltrados = pedidos.filter((pedido) => {
+  const texto = filtros.cliente.toLowerCase().trim();
+
+  const coincideCliente =
+    !texto ||
+    pedido.nombreCliente?.toLowerCase().includes(texto) ||
+    pedido.emailCliente?.toLowerCase().includes(texto) ||
+    pedido.numeroOrdenPyme?.toLowerCase().includes(texto);
+
+  const coincideEstado =
+    !filtros.estado ||
+    pedido.estadoPedidoPyme === filtros.estado;
+
+  return coincideCliente && coincideEstado;
+  });
 
   // Aplicar filtros manualmente
   const aplicarFiltros = () => {
@@ -74,16 +96,21 @@ export default function PedidosPage() {
     cargarPedidos();
   };
 
+  const totalPaginas = Math.ceil(pedidosFiltrados.length / pedidosPorPagina);
+  const pedidosPaginados = pedidosFiltrados.slice((paginaActual - 1) * pedidosPorPagina, paginaActual * pedidosPorPagina);
+
   // Obtener color según estado
   const getEstadoColor = (estado: EstadoPedido) => {
     switch (estado) {
       case EstadoPedido.ASIGNADO:
         return 'bg-yellow-100 text-yellow-800';
-      case EstadoPedido.ACEPTADO:
+      case EstadoPedido.PEDIDO_RETIRADO:
         return 'bg-blue-100 text-blue-800';
       case EstadoPedido.EN_CAMINO:
         return 'bg-purple-100 text-purple-800';
-      case EstadoPedido.CANCELADO:
+      case EstadoPedido.ENTREGADO:
+        return 'bg-green-100 text-green-800';
+      case EstadoPedido.RECHAZADO:
         return 'bg-red-100 text-red-800';
       default:
         return 'bg-gray-100 text-gray-800';
@@ -134,10 +161,11 @@ export default function PedidosPage() {
                 onChange={(e) => handleFiltroChange('estado', e.target.value)}
               >
                 <option value="">Todos los estados</option>
+                <option value={EstadoPedido.DISPONIBLE}>Disponible</option>
                 <option value={EstadoPedido.ASIGNADO}>Asignado</option>
                 <option value={EstadoPedido.EN_CAMINO}>En Camino</option>
                 <option value={EstadoPedido.ENTREGADO}>Entregado</option>
-                <option value={EstadoPedido.CANCELADO}>Cancelado</option>
+                <option value={EstadoPedido.RECHAZADO}>Rechazado</option>
               </select>
             </div>
             <div className="flex items-end space-x-2">
@@ -179,7 +207,7 @@ export default function PedidosPage() {
                 🔄 Reintentar
               </Button>
             </div>
-          ) : pedidos.length === 0 ? (
+          ) : pedidosFiltrados.length === 0 ? (
             <div className="p-8 text-center">
               <div className="text-gray-500">📦 No hay pedidos encontrados</div>
               <Link href="/pedidos/crear">
@@ -214,7 +242,7 @@ export default function PedidosPage() {
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
-                  {pedidos.map((pedido) => (
+                  {pedidosPaginados.map((pedido) => (
                     <tr key={pedido.id} className="hover:bg-gray-50">
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div className="text-sm font-medium text-gray-900">
@@ -248,8 +276,8 @@ export default function PedidosPage() {
                               👁️ Ver
                             </Button>
                           </Link>
-                          <Button variant="primary" size="sm">
-                            ✏️ Editar
+                          <Button variant="primary" size="sm" onClick={() => alert("La gestión avanzada de pedidos estará disponible próximamente. Por seguridad operacional, los estados se gestionan desde la app del repartidor.")}>
+                            ⚙️ Gestionar
                           </Button>
                         </div>
                       </td>
@@ -262,24 +290,37 @@ export default function PedidosPage() {
         </div>
 
         {/* Paginación */}
-        {pedidos.length > 0 && (
+        {pedidosFiltrados.length > 0 && (
           <div className="flex justify-between items-center">
             <div className="text-sm text-gray-700">
-              Mostrando {pedidos.length} pedidos
+              Mostrando {pedidosPaginados.length} de {pedidosFiltrados.length} pedidos
             </div>
-            <div className="flex space-x-2">
-              <Button 
-                variant="secondary" 
-                size="sm"
-                disabled={filtros.page === 0}
-                onClick={() => setFiltros(prev => ({ ...prev, page: prev.page - 1 }))}
+
+            <div className="flex items-center gap-3">
+              <Button
+                variant="secondary"
+                disabled={paginaActual === 1}
+                onClick={() =>
+                  setPaginaActual((prev) => Math.max(prev - 1, 1))
+                }
               >
                 ⬅️ Anterior
               </Button>
-              <Button 
-                variant="secondary" 
-                size="sm"
-                onClick={() => setFiltros(prev => ({ ...prev, page: prev.page + 1 }))}
+
+              <span className="text-sm text-gray-600">
+                Página {paginaActual} de {totalPaginas || 1}
+              </span>
+
+              <Button
+                variant="secondary"
+                disabled={
+                  paginaActual >= totalPaginas || totalPaginas === 0
+                }
+                onClick={() =>
+                  setPaginaActual((prev) =>
+                    Math.min(prev + 1, totalPaginas)
+                  )
+                }
               >
                 Siguiente ➡️
               </Button>
