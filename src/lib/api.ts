@@ -1,8 +1,8 @@
 // Cliente API para comunicarse con los microservicios backend
 // Usando axios con TypeScript
 
+import { ApiError, PaginatedResponse } from '@/types';
 import axios, { AxiosInstance, AxiosResponse } from 'axios';
-import { ApiResponse, PaginatedResponse, ApiError } from '@/types';
 
 // Configuración base de axios - Conectar directamente a microservicios específicos
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:8086/api/v1';
