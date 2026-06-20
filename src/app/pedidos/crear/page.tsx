@@ -210,6 +210,12 @@ export default function CrearPedidoPage() {
         ]
           .filter(Boolean)
           .join(' | '),
+        items: productosSeleccionados.map((item) => ({
+          productoId: item.producto.id,
+          nombreProducto: item.producto.nombreProducto,
+          cantidad: item.cantidad,
+          precioUnitario: item.producto.precioVentaChile,
+        })),
       };
 
       console.log('📦 Creando pedido:', pedidoData);
