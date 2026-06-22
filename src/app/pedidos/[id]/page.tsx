@@ -35,12 +35,46 @@ export default function DetallePedidoPage() {
 
   const pedidoId = params?.id;
 
+  const obtenerPymeId = () => {
+    try {
+      const userInfoRaw = localStorage.getItem('userInfo');
+
+      if (!userInfoRaw) return null;
+
+      const userInfo = JSON.parse(userInfoRaw);
+
+      return userInfo.pymeId ?? userInfo.idPyme ?? userInfo.pyme_id ?? null;
+    } catch {
+      return null;
+    }
+  };
+
   useEffect(() => {
     const cargarPedido = async () => {
       try {
         setLoading(true);
-        const response = await apiClient.get<Pedido>(`/pedidos/${pedidoId}`);
-        setPedido(response.data);
+
+        const pymeId = obtenerPymeId();
+
+        if (!pymeId) {
+          alert('No se pudo identificar la PYME. Vuelve a iniciar sesión.');
+          router.push('/pedidos');
+          return;
+        }
+
+        const response = await apiClient.get<Pedido[]>(`/pedidos/pyme/${pymeId}`);
+
+        const pedidoEncontrado = response.data.find(
+          (item) => Number(item.id) === Number(pedidoId)
+        );
+
+        if (!pedidoEncontrado) {
+          alert('El pedido no pertenece a esta PYME o no existe.');
+          router.push('/pedidos');
+          return;
+        }
+
+        setPedido(pedidoEncontrado);
       } catch (error) {
         console.error('Error cargando pedido:', error);
         alert('No fue posible cargar el detalle del pedido.');

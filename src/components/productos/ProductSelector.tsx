@@ -33,52 +33,65 @@ const ProductSelector: React.FC<ProductSelectorProps> = ({
   const cargarProductos = async () => {
     try {
       setLoading(true);
-      // Cargar productos reales desde la API
-      const response = await apiClient.get('/productos/pyme/1');
-      const productosReales: Producto[] = (response.data as any[]).map((producto: any) => ({
-        id: producto.id,
-        pyme: { 
-          id: producto.pymeId, 
-          nombrePyme: 'TechStore SPA', 
-          rutPyme: '76.123.456-7', 
-          emailContactoPyme: 'contacto@techstore.cl', 
-          activo: true, 
-          creadoEn: producto.creadoEn 
-        },
-        codigoSKU: producto.codigoSKU || '',
-        nombreProducto: producto.nombreProducto,
-        descripcionProducto: producto.descripcionProducto || '',
-        precioVentaChile: Number(producto.precioVentaChile),
-        pesoProductoKg: producto.pesoProductoKg || 0,
-        dimensionesProducto: producto.dimensionesProducto || '',
-        imagenUrl: producto.imagenUrl || 'https://via.placeholder.com/400x300/1e3a8a/999999?text=Producto',
-        categoriaProducto: (producto.categoriaProducto as CategoriaProducto) || CategoriaProducto.ACCESORIOS,
-        activo: producto.activo,
-        creadoEn: producto.creadoEn
-      }));
-      
+
+      const userInfo = JSON.parse(
+        localStorage.getItem('userInfo') || '{}'
+      );
+
+      const pymeId = userInfo.pymeId;
+
+      console.log('🏢 PYME LOGUEADA:', pymeId);
+
+      if (!pymeId) {
+        throw new Error('No existe pymeId en localStorage');
+      }
+
+      const response = await apiClient.get(
+        `/productos/pyme/${pymeId}`
+      );
+
+      const productosReales: Producto[] = (response.data as any[]).map(
+        (producto: any) => ({
+          id: producto.id,
+          pyme: {
+            id: producto.pymeId,
+            nombrePyme: 'Pyme',
+            rutPyme: '',
+            emailContactoPyme: '',
+            activo: true,
+            creadoEn: producto.creadoEn
+          },
+          codigoSKU: producto.codigoSKU || '',
+          nombreProducto: producto.nombreProducto,
+          descripcionProducto: producto.descripcionProducto || '',
+          precioVentaChile: Number(producto.precioVentaChile),
+          pesoProductoKg: producto.pesoProductoKg || 0,
+          dimensionesProducto: producto.dimensionesProducto || '',
+          imagenUrl:
+            producto.imagenUrl ||
+            '/placeholder-product.jpg',
+          categoriaProducto:
+            (producto.categoriaProducto as CategoriaProducto) ||
+            CategoriaProducto.ACCESORIOS,
+          activo: producto.activo,
+          creadoEn: producto.creadoEn
+        })
+      );
+
+      console.log(
+        '📦 Productos obtenidos:',
+        productosReales.length
+      );
+
       setProductos(productosReales);
-      console.log('Productos cargados desde API:', productosReales);
+
     } catch (error) {
-      console.error('Error al cargar productos desde API:', error);
-      // Fallback a productos mock si hay error
-      const productosMock: Producto[] = [
-        {
-          id: 1,
-          pyme: { id: 1, nombrePyme: 'TechStore SPA', rutPyme: '76.123.456-7', emailContactoPyme: 'contacto@techstore.cl', activo: true, creadoEn: '2024-04-23T00:00:00' },
-          codigoSKU: 'TECH001',
-          nombreProducto: 'Laptop Gaming Pro',
-          descripcionProducto: 'Laptop de alto rendimiento para gaming',
-          precioVentaChile: 89990,
-          pesoProductoKg: 2.5,
-          dimensionesProducto: '35 x 25 x 3 cm',
-          imagenUrl: 'https://via.placeholder.com/400x300/1e3a8a/999999?text=Laptop',
-          categoriaProducto: CategoriaProducto.NOTEBOOK,
-          activo: true,
-          creadoEn: '2024-04-23T00:00:00'
-        }
-      ];
-      setProductos(productosMock);
+      console.error(
+        '❌ Error al cargar productos:',
+        error
+      );
+
+      setProductos([]);
     } finally {
       setLoading(false);
     }

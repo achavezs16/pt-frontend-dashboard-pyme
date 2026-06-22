@@ -169,6 +169,22 @@ class ApiClient {
     return this.client.delete(`/productos/${id}`);
   }
 
+  // INVENTARIO
+  async getInventarioByProducto(productoId: number): Promise<AxiosResponse<any>> {
+    return this.client.get(`/inventario/producto/${productoId}`);
+  }
+
+  async actualizarInventario(
+    productoId: number,
+    stockDisponible: number,
+    stockReservado: number
+  ): Promise<AxiosResponse<any>> {
+    return this.client.put(`/inventario/producto/${productoId}/stock`, {
+      stockDisponible,
+      stockReservado,
+    });
+  }
+
   // PYMES
   async getPymes(
     params?: any

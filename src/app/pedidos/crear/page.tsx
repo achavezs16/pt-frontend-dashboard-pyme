@@ -14,6 +14,8 @@ type ProductoCatalogo = {
   precioVentaChile: number;
   categoriaProducto?: string;
   activo: boolean;
+  stockDisponible?: number;
+  stockReservado?: number;
 };
 
 type ProductoSeleccionado = {
@@ -44,17 +46,24 @@ export default function CrearPedidoPage() {
 
   const obtenerPymeId = () => {
     try {
-      const pymeInfo = localStorage.getItem('pymeInfo');
-      const parsed = pymeInfo ? JSON.parse(pymeInfo) : null;
+      const userInfoRaw = localStorage.getItem('userInfo');
+
+      if (!userInfoRaw) {
+        console.error('No existe userInfo en localStorage');
+        return null;
+      }
+
+      const userInfo = JSON.parse(userInfoRaw);
 
       return (
-        parsed?.pymeId ||
-        parsed?.id ||
-        parsed?.userInfo?.pymeId ||
-        1
+        userInfo.pymeId ??
+        userInfo.idPyme ??
+        userInfo.pyme_id ??
+        null
       );
-    } catch {
-      return 1;
+    } catch (error) {
+      console.error('Error leyendo pymeId desde localStorage:', error);
+      return null;
     }
   };
 
@@ -65,9 +74,56 @@ export default function CrearPedidoPage() {
         setError(null);
 
         const pymeId = obtenerPymeId();
-        const response = await apiClient.get<ProductoCatalogo[]>(`/productos/pyme/${pymeId}`);
 
-        const productosActivos = response.data.filter((producto) => producto.activo);
+        if (!pymeId) {
+          setProductos([]);
+          setError('No se pudo identificar la PYME. Vuelve a iniciar sesión.');
+          return;
+        }
+
+        const response = await apiClient.get<ProductoCatalogo[]>(`/productos/pyme/${pymeId}`);
+        console.log('🏢 Cargando productos para PYME:', obtenerPymeId());
+
+        const productosActivos = await Promise.all(
+          response.data
+            .filter((producto) => producto.activo)
+            .map(async (producto) => {
+              try {
+                const token = localStorage.getItem('token');
+
+                const inventarioResponse = await fetch(
+                  `http://localhost:8086/api/v1/inventario/producto/${producto.id}`,
+                  {
+                    headers: {
+                      Authorization: token ? `Bearer ${token}` : '',
+                    },
+                  }
+                );
+
+                if (!inventarioResponse.ok) {
+                  return {
+                    ...producto,
+                    stockDisponible: 0,
+                    stockReservado: 0,
+                  };
+                }
+
+                const inventario = await inventarioResponse.json();
+
+                return {
+                  ...producto,
+                  stockDisponible: inventario.stockDisponible ?? 0,
+                  stockReservado: inventario.stockReservado ?? 0,
+                };
+              } catch {
+                return {
+                  ...producto,
+                  stockDisponible: 0,
+                  stockReservado: 0,
+                };
+              }
+            })
+        );
         setProductos(productosActivos);
       } catch (err) {
         console.error('❌ Error cargando productos:', err);
@@ -120,10 +176,22 @@ export default function CrearPedidoPage() {
   };
 
   const agregarProducto = (producto: ProductoCatalogo) => {
+    const stockDisponible = producto.stockDisponible ?? 0;
+
+    if (stockDisponible <= 0) {
+      alert('Este producto no tiene stock disponible.');
+      return;
+    }
+
     setProductosSeleccionados((prev) => {
       const existe = prev.find((item) => item.producto.id === producto.id);
 
       if (existe) {
+        if (existe.cantidad >= stockDisponible) {
+          alert('No puedes agregar más unidades que el stock disponible.');
+          return prev;
+        }
+
         return prev.map((item) =>
           item.producto.id === producto.id
             ? { ...item, cantidad: item.cantidad + 1 }
@@ -142,11 +210,26 @@ export default function CrearPedidoPage() {
     }
 
     setProductosSeleccionados((prev) =>
-      prev.map((item) =>
-        item.producto.id === productoId
-          ? { ...item, cantidad }
-          : item
-      )
+      prev.map((item) => {
+        if (item.producto.id !== productoId) {
+          return item;
+        }
+
+        const stockDisponible = item.producto.stockDisponible ?? 0;
+
+        if (cantidad > stockDisponible) {
+          alert('No puedes superar el stock disponible.');
+          return {
+            ...item,
+            cantidad: stockDisponible,
+          };
+        }
+
+        return {
+          ...item,
+          cantidad,
+        };
+      })
     );
   };
 
@@ -372,7 +455,7 @@ export default function CrearPedidoPage() {
                             {producto.nombreProducto}
                           </h3>
                           <p className="text-xs text-gray-500 mt-1">
-                            SKU: {producto.codigoSKU} · {producto.categoriaProducto}
+                            SKU: {producto.codigoSKU} 
                           </p>
                           <p className="text-sm text-gray-600 mt-2 line-clamp-2">
                             {producto.descripcionProducto || 'Sin descripción'}
@@ -384,6 +467,27 @@ export default function CrearPedidoPage() {
                             {formatCurrency(producto.precioVentaChile)}
                           </p>
                         </div>
+                      </div>
+                      <div className="mt-3 flex items-center justify-between text-sm">
+                        <span
+                          className={`px-2 py-1 rounded-full font-semibold ${
+                            (producto.stockDisponible ?? 0) <= 0
+                              ? 'bg-red-100 text-red-700'
+                              : (producto.stockDisponible ?? 0) <= 5
+                                ? 'bg-yellow-100 text-yellow-700'
+                                : 'bg-green-100 text-green-700'
+                          }`}
+                        >
+                          {(producto.stockDisponible ?? 0) <= 0
+                            ? 'Sin stock'
+                            : `Stock: ${producto.stockDisponible}`}
+                        </span>
+
+                        {(producto.stockReservado ?? 0) > 0 && (
+                          <span className="text-xs text-yellow-700">
+                            Reservado: {producto.stockReservado}
+                          </span>
+                        )}
                       </div>
 
                       <button

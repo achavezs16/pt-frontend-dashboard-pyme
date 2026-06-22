@@ -17,11 +17,12 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
   const [userMenuOpen, setUserMenuOpen] = useState(false);
 
   const navigation = [
-    { name: 'Dashboard', href: '/', icon: '📊' },
+    { name: 'Dashboard', href: '/', icon: '📈' },
     { name: 'Pedidos', href: '/pedidos', icon: '📦' },
     { name: 'Crear Pedido', href: '/pedidos/crear', icon: '➕' },
     { name: 'Productos', href: '/productos', icon: '🛍️' },
     { name: 'Crear Producto', href: '/productos/crear', icon: '⭐' },
+    { name: 'Inventario', href: '/inventario', icon: '📊' },
     { name: 'Perfil', href: '/perfil', icon: '👤' },
   ];
 

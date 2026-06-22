@@ -36,16 +36,34 @@ export default function PedidosPage() {
       params.append('page', filtros.page.toString());
       params.append('size', filtros.size.toString());
 
-      const pymeInfo = localStorage.getItem('pymeInfo');
-      const parsedPymeInfo = pymeInfo ? JSON.parse(pymeInfo) : null;
+      const obtenerPymeId = () => {
+        try {
+          const userInfoRaw = localStorage.getItem('userInfo');
 
-      const pymeId =
-        parsedPymeInfo?.pymeId ||
-        parsedPymeInfo?.id ||
-        parsedPymeInfo?.userInfo?.pymeId ||
-        1;
+          if (!userInfoRaw) {
+            return null;
+          }
 
-      console.log(`📡 Haciendo petición a pedidos de PYME ${pymeId}`);
+          const userInfo = JSON.parse(userInfoRaw);
+
+          return (
+            userInfo.pymeId ??
+            userInfo.idPyme ??
+            userInfo.pyme_id ??
+            null
+          );
+        } catch {
+          return null;
+        }
+      };
+
+      const pymeId = obtenerPymeId();
+
+      if (!pymeId) {
+        setPedidos([]);
+        setError('No se pudo identificar la PYME. Vuelve a iniciar sesión.');
+        return;
+      }
 
       const response = await apiClient.getPedidosByPyme(pymeId);
       
@@ -183,7 +201,7 @@ export default function PedidosPage() {
                   cargarPedidos();
                 }}
               >
-                🔄 Limpiar
+                🔄 
               </Button>
             </div>
           </div>
