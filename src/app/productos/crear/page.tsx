@@ -20,6 +20,7 @@ interface ProductoForm {
   dimensionesProducto: string;
   imagenUrl: string;
   activo: boolean;
+  stockInicial: number;
 }
 
 export default function CrearProductoPage() {
@@ -37,7 +38,8 @@ export default function CrearProductoPage() {
     pesoProductoKg: 0,
     dimensionesProducto: '',
     imagenUrl: '',
-    activo: true
+    activo: true,
+    stockInicial: 0,
   });
 
   // Estado para validación
@@ -86,6 +88,10 @@ export default function CrearProductoPage() {
       nuevosErrores.pesoProductoKg = 'El peso no puede ser negativo';
     }
 
+    if (formData.stockInicial < 0) {
+      nuevosErrores.stockInicial = 'El stock inicial no puede ser negativo';
+    }    
+
     setErrors(nuevosErrores);
     return Object.keys(nuevosErrores).length === 0;
   };
@@ -102,27 +108,40 @@ export default function CrearProductoPage() {
     setError(null);
     
     try {
-      // Preparar datos para enviar
+      const userInfo = JSON.parse(localStorage.getItem('userInfo') || '{}');
+      const pymeId = userInfo.pymeId || userInfo.id || userInfo.idPyme || userInfo.pyme_id;
+
+      if (!pymeId) {
+        setError('No se pudo identificar la PYME del usuario. Vuelve a iniciar sesión.');
+        setLoading(false);
+        return;
+      }
+
+      console.log('USER INFO PRODUCTO:', userInfo);
+
       const productoData = {
-        ...formData,
-        pymeId: 1, // ID de la PYME actual (hardcodeado por ahora)
+        idPyme: Number(pymeId),
+        codigoSKU: formData.codigoSKU,
+        nombreProducto: formData.nombreProducto,
+        descripcionProducto: formData.descripcionProducto,
         precioVentaChile: Number(formData.precioVentaChile),
-        pesoProductoKg: Number(formData.pesoProductoKg) || 0
+        pesoProductoKg: Number(formData.pesoProductoKg) || 0,
+        dimensionesProducto: formData.dimensionesProducto,
+        imagenUrl: formData.imagenUrl,
+        categoriaProducto: 'ACCESORIOS',
+        activo: formData.activo,
+        stockInicial: Number(formData.stockInicial) || 0,
       };
 
       console.log('Enviando producto:', productoData);
-      
-      // Temporalmente simular creación exitosa
-      // const response = await apiClient.post('/productos', productoData);
-      
-      // Simulación de éxito
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
+
+      await apiClient.post('/productos', productoData);
+
       setSuccess(true);
+
       setTimeout(() => {
         router.push('/productos');
-      }, 2000);
-      
+      }, 1000);
     } catch (err) {
       console.error('Error al crear producto:', err);
       setError('Error al crear el producto. Por favor, intenta nuevamente.');
@@ -232,6 +251,19 @@ export default function CrearProductoPage() {
                   error={errors.precioVentaChile}
                   helperText={`Precio en pesos chilenos (${formatMoneda(0)})`}
                   required
+                />
+              </div>
+
+              {/* Stock Inicial */}
+              <div>
+                <Input
+                  label="Stock inicial"
+                  type="number"
+                  placeholder="0"
+                  value={formData.stockInicial}
+                  onChange={(e) => handleInputChange('stockInicial', Number(e.target.value))}
+                  error={errors.stockInicial}
+                  helperText="Cantidad disponible inicial del producto"
                 />
               </div>
 

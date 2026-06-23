@@ -14,6 +14,8 @@ interface ProductoCardProps {
   onSelect?: (producto: Producto) => void;
   showActions?: boolean;
   showSelect?: boolean;
+  stockDisponible?: number;
+  stockReservado?: number;
 }
 
 const ProductoCard: React.FC<ProductoCardProps> = ({
@@ -21,6 +23,8 @@ const ProductoCard: React.FC<ProductoCardProps> = ({
   onEdit,
   onDelete,
   onSelect,
+  stockDisponible,
+  stockReservado,
   showActions = true,
   showSelect = false
 }) => {
@@ -108,6 +112,22 @@ const ProductoCard: React.FC<ProductoCardProps> = ({
               📐 {producto.dimensionesProducto}
             </span>
           )}
+        </div>
+
+        <div className="mb-3 grid grid-cols-2 gap-2 text-sm">
+          <div className="rounded-lg bg-green-50 px-3 py-2 border border-green-100">
+            <p className="text-xs text-green-700 font-medium">Stock disponible</p>
+            <p className="text-lg font-bold text-green-800">
+              {stockDisponible ?? '—'}
+            </p>
+          </div>
+
+          <div className="rounded-lg bg-yellow-50 px-3 py-2 border border-yellow-100">
+            <p className="text-xs text-yellow-700 font-medium">Reservado</p>
+            <p className="text-lg font-bold text-yellow-800">
+              {stockReservado ?? '—'}
+            </p>
+          </div>
         </div>
 
         {/* Acciones */}

@@ -110,9 +110,9 @@ export default function HomePage() {
           <h1 className="text-3xl font-bold text-gray-900">
             Inicio
           </h1>
-          <p className="mt-1 text-gray-600">
-            Bienvenido/a, {pymeInfo?.nombrePyme || user?.nombre || 'PYME'}
-          </p>
+            <p className="mt-1 text-gray-600">
+              Bienvenido/a, {user?.nombre || pymeInfo?.nombrePyme || 'PYME'}
+            </p>
         </div>
 
         {/* Acciones rápidas */}
@@ -144,7 +144,7 @@ export default function HomePage() {
           </Link>
 
           <Link
-            href="/catalogo"
+            href="/productos"
             className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm transition hover:shadow-md"
           >
             <p className="text-2xl">🛒</p>
