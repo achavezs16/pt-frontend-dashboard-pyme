@@ -2,7 +2,7 @@ import axios, { AxiosInstance, AxiosResponse } from 'axios';
 import { PaginatedResponse, ApiError } from '@/types';
 
 const API_BASE_URL =
-  process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:8086/api/v1';
+  process.env.NEXT_PUBLIC_API_BASE_URL || 'http://18.210.17.166:8086/api/v1';
 
 class ApiClient {
   private client: AxiosInstance;
