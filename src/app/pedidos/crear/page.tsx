@@ -92,7 +92,7 @@ export default function CrearPedidoPage() {
                 const token = localStorage.getItem('token');
 
                 const inventarioResponse = await fetch(
-                  `http://alb-pymetrack-gateway-1161738198.us-east-1.elb.amazonaws.com/api/v1/inventario/producto/${producto.id}`,
+                  `NEXT_PUBLIC_API_BASE_URL/api/v1/inventario/producto/${producto.id}`,
                   {
                     headers: {
                       Authorization: token ? `Bearer ${token}` : '',
